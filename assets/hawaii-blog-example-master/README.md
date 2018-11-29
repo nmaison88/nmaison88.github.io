@@ -1,0 +1,1 @@
+hawaii-blog-example.git
