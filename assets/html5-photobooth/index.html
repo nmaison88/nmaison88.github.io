@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <title>html5 video</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
 
+
+</head>
 
 <style>
   body{
     margin:0;
+    background-image: url('bg.png');  
+    background-position: center; /* Center the image */
+
+    background-size: cover; /* Resize the background image to cover the entire container */
+
   }
 
+h1{
+  font-family: Marker Felt, fantasy;
+  color: white;
+    text-shadow: 5px 5px black;
+
+}
 
   @media (max-width: 1200px) {
     #canvas0, #canvas1, #canvas2, #canvas3, #canvas4, #canvas5{
@@ -96,11 +108,12 @@ text-align: center;}
 <canvas id="canvas2" width="320" height="240"></canvas><br>
   </div>
     <div class="col-6 bg-light">
-  <video id="video" class="center"  width="960" height="540" autoplay></video>
-  <div id="buttongroup"><button id="snap">Snap Photo</button>
-<button id="reset" onclick="reset()">Reset</button>
-<button id="print" onclick="print()">Print</button>
-<button id="cssfilters-apply">filter</button>
+  <video id="video"  width="960" height="540" style="margin: 50px auto; width: 100%;" autoplay></video>
+  <div id="buttongroup"><button id="snap" onclick="sound()">Snap Photo</button>
+<button id="reset" onclick="reset()">Clear</button>
+<button id="reset" onclick="startcam()">StartCam</button>
+<!-- <button id="print" onclick="download()">Download</button>
+ --><button id="cssfilters-apply">filter</button>
 <input type="button" id="stop" value="Stop Video" onclick="killcam()"></input>
 </div>
     </div>
@@ -117,10 +130,13 @@ text-align: center;}
 </div>
 
 </div>
+    <audio  id="audio" src="shutter.wav" type="audio/wav" autoplay="false" ></audio>
+
 
 </body>
 <!-- End of container -->
 <script>// Grab elements, create settings, etc.
+
 var video = document.getElementById('video');
 
 // Get access to the camera!
@@ -133,9 +149,21 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 
 }
+function startcam(){
+  if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+
+}
+}
 
 // Elements for taking the snapshot
 var count=0;
+  var images=[];
 
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
@@ -188,6 +216,9 @@ else if(y==="sepia"){
 
 });
 
+
+
+
 //clear out all of the Snapped Photos. 
 function reset(){
       count=0;
@@ -219,10 +250,83 @@ function reset(){
       context4.clearRect(0, 0, canvas4.width, canvas4.height);
       context5.clearRect(0, 0, canvas5.width, canvas5.height);
 
-
-
-
 }
+
+   function sound() {
+    // console.log("play!");
+    document.getElementById("audio").play();
+
+    }
+// var button = document.getElementById('btn-download');
+// button.addEventListener('click', function (e) {
+//     var dataURL = canvas.toDataURL('image/png');
+//     button.href = dataURL;
+// });
+
+
+// function download(){
+
+//   var canvas0 = document.getElementById("canvas0");
+// var img = canvas0.toDataURL("image/png");
+// images.splice(0, 1,img);
+
+// var canvas1 = document.getElementById("canvas1");
+// var img1 =canvas1.toDataURL("image/png");
+// images.splice(1,1,img1);
+
+// var canvas2 = document.getElementById("canvas2");
+// var img2 = canvas2.toDataURL("image/png");
+// images.splice(2,1,img2);
+
+// var canvas3 = document.getElementById("canvas3");
+// var img3 = canvas3.toDataURL("image/png");
+// images.splice(3,1,img3);
+
+// var canvas4 = document.getElementById("canvas4");
+// var img4 = canvas4.toDataURL("image/png");
+// images.splice(4,1,img4);
+
+// var canvas5 = document.getElementById("canvas5");
+// var img5 = canvas5.toDataURL("image/png");
+// images.splice(5,1,img5);
+
+//    process.stdout.write('array size=' + images.length+'\n');
+
+// var x=0;
+
+// for(var i=0; i<=images.length; i++){console.log('items in array',images.length);
+// const {ipcRenderer} = require('electron');
+// // process.stdout.write("ELEMENT PRINT" +element);
+// ipcRenderer.send('download', {
+//       url: photos,
+//       properties: {
+//         saveAs: false,
+//         filename:'Photo'
+//       }
+//     });
+// }
+
+
+// images.forEach(function(element,value){
+  // photos=element;
+  // num=value;
+  // process.stdout.write('value: '+value);
+  // process.stdout.write('send download to appjs');
+      // const {ipcRenderer} = require('electron');
+// process.stdout.write("ELEMENT PRINT" +element);
+// // ipcRenderer.sendSync('download', {
+//       url: photos,
+//       properties: {
+//         saveAs: false,
+//         filename:`${value}`
+//       }
+//     });
+//       x+=1;
+// })
+// images=[];
+
+  // console.log('after send download to appjs');
+ 
 
 </script>
 
@@ -259,7 +363,9 @@ track.stop();
 function print(){
   console.log("PRINT");
 
-    window.print();
+    // window.print();
+        printer.print("Text sent to printer.")
+
 
 }
   
