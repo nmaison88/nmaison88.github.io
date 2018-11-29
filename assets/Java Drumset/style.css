@@ -1,0 +1,1005 @@
+
+.highlight{
+fill: gold;
+color: red;
+background-color: pink;
+opacity: 0.7;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-auto-rows: minmax(20px, auto);
+}
+#sequencer {
+  grid-column: 2 / 3;
+  grid-row: 1/ 2;
+  width: 100%
+  height:auto;
+}
+.bpm{
+	 grid-column: 1 / 4;
+  grid-row: 2;
+  margin-left: 5px;
+}
+
+
+
+#myModal{
+	width: 20%;
+	height: auto;
+ position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+
+body{
+	background-color: black;
+	color: white;
+}
+
+
+p{
+	color: black;
+}
+
+.slidecontainer {
+	margin-top: 10px;
+	margin-left: 5px;
+    width: 100%;
+  grid-column: 1 / 2;
+
+  grid-row: 1;
+  font-size: 9px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 20px;
+    /*  -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);*/
+
+}
+
+.slider:hover {
+    opacity: 1;
+
+}
+
+#myBtn{
+grid-column: 3 ;
+grid-row: 2;
+height: 40%;
+width: 40%;
+margin:auto;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 10px;
+    border-radius: 20%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 10px;
+    border-radius: 20%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+
+	.SVG{display: block;
+	margin: auto;
+    width: 100%;
+    	 grid-column: 3 / 5;
+  grid-row: 1 / 3;
+/*    border: 3px solid gray;
+*/    padding: 0px;}
+	.st0{fill:url(#Crash_2_1_);}
+	.st1{fill:url(#SVGID_1_);}
+	.st2{fill:url(#Hats_2_);}
+	.st3{fill:url(#SVGID_2_);}
+	.st4{fill:url(#SVGID_3_);}
+	.st5{fill:url(#Kick_1_);}
+	#Kick:hover {opacity: 0.8;}
+	#Hats_1_:hover {opacity: 0.8;}
+	#Crash_2:hover {opacity: 0.8;}
+	#Crash_1:hover {opacity: 0.8;}
+	#Tom3:hover {opacity: 0.8;
+		}
+	#Tom1:hover {opacity: 0.8;}
+	#Snare:hover {opacity: 0.8;}
+	#Tom2_1_:hover {opacity: 0.8;}
+	.st6{fill:url(#SVGID_4_);}
+	.st7{fill:url(#SVGID_5_);}
+	.st8{fill:url(#SVGID_6_);}
+	.st9{fill:url(#SVGID_7_);}
+	.st10{fill:url(#SVGID_8_);}
+	.st11{fill:url(#SVGID_9_);}
+	.st12{fill:url(#SVGID_10_);}
+	.st13{fill:url(#SVGID_11_);}
+	.st14{fill:url(#Tom_1_1_);}
+	.st15{fill:url(#SVGID_12_);}
+	.st16{fill:url(#SVGID_13_);}
+	.st17{fill:url(#SVGID_14_);}
+	.st18{fill:url(#SVGID_15_);}
+	.st19{fill:url(#SVGID_16_);}
+	.st20{fill:url(#SVGID_17_);}
+	.st21{fill:url(#SVGID_18_);}
+	.st22{fill:url(#SVGID_19_);}
+	.st23{fill:url(#SVGID_20_);}
+	.st24{fill:url(#SVGID_21_);}
+	.st25{fill:url(#SVGID_22_);}
+	.st26{fill:url(#SVGID_23_);}
+	.st27{fill:url(#SVGID_24_);}
+	.st28{fill:url(#SVGID_25_);}
+	.st29{fill:url(#SVGID_26_);}
+	.st30{fill:url(#SVGID_27_);}
+	.st31{fill:url(#SVGID_28_);}
+	.st32{fill:url(#Tom2_2_);}
+	.st33{fill:url(#SVGID_29_);}
+	.st34{fill:url(#SVGID_30_);}
+	.st35{fill:url(#SVGID_31_);}
+	.st36{fill:url(#SVGID_32_);}
+	.st37{fill:url(#SVGID_33_);}
+	.st38{fill:url(#SVGID_34_);}
+	.st39{fill:url(#SVGID_35_);}
+	.st40{fill:url(#SVGID_36_);}
+	.st41{fill:url(#SVGID_37_);}
+	.st42{fill:url(#SVGID_38_);}
+	.st43{fill:url(#Crash_1_1_);}
+	.st44{fill:url(#SVGID_39_);}
+	.st45{fill:url(#SVGID_40_);}
+	.st46{fill:url(#SVGID_41_);}
+	.st47{fill:url(#SVGID_42_);}
+	.st48{fill:url(#SVGID_43_);}
+	.st49{fill:url(#SVGID_44_);}
+	.st50{fill:url(#SVGID_45_);}
+	.st51{fill:url(#SVGID_46_);}
+	.st52{fill:url(#SVGID_47_);}
+	.st53{fill:url(#SVGID_48_);}
+	.st54{fill:url(#SVGID_49_);}
+	.st55{fill:url(#SVGID_50_);}
+	.st56{fill:url(#SVGID_51_);}
+	.st57{fill:url(#SVGID_52_);}
+	.st58{fill:url(#SVGID_53_);}
+	.st59{fill:url(#SVGID_54_);}
+	.st60{fill:url(#SVGID_55_);}
+	.st61{fill:url(#SVGID_56_);}
+	.st62{fill:url(#SVGID_57_);}
+	.st63{fill:url(#SVGID_58_);}
+	.st64{fill:url(#SVGID_59_);}
+	.st65{fill:url(#SVGID_60_);}
+	.st66{fill:url(#SVGID_61_);}
+	.st67{fill:url(#SVGID_62_);}
+	.st68{fill:url(#SVGID_63_);}
+	.st69{fill:url(#SVGID_64_);}
+	.st70{fill:url(#SVGID_65_);}
+	.st71{fill:url(#SVGID_66_);}
+	.st72{fill:url(#SVGID_67_);}
+	.st73{fill:url(#SVGID_68_);}
+	.st74{fill:url(#SVGID_69_);}
+	.st75{fill:url(#SVGID_70_);}
+	.st76{fill:url(#SVGID_71_);}
+	.st77{fill:url(#SVGID_72_);}
+	.st78{fill:url(#SVGID_73_);}
+	.st79{fill:url(#SVGID_74_);}
+	.st80{fill:url(#SVGID_75_);}
+	.st81{fill:url(#SVGID_76_);}
+	.st82{fill:url(#SVGID_77_);}
+	.st83{fill:url(#SVGID_78_);}
+	.st84{fill:url(#SVGID_79_);}
+	.st85{fill:url(#SVGID_80_);}
+	.st86{fill:url(#SVGID_81_);}
+	.st87{fill:url(#SVGID_82_);}
+	.st88{fill:url(#SVGID_83_);}
+	.st89{fill:url(#SVGID_84_);}
+	.st90{fill:url(#SVGID_85_);}
+	.st91{fill:url(#SVGID_86_);}
+	.st92{fill:url(#SVGID_87_);}
+	.st93{fill:url(#SVGID_88_);}
+	.st94{fill:url(#SVGID_89_);}
+	.st95{fill:url(#SVGID_90_);}
+	.st96{fill:url(#SVGID_91_);}
+	.st97{fill:url(#SVGID_92_);}
+	.st98{fill:url(#SVGID_93_);}
+	.st99{fill:url(#SVGID_94_);}
+	.st100{fill:url(#SVGID_95_);}
+	.st101{fill:url(#SVGID_96_);}
+	.st102{fill:url(#SVGID_97_);}
+	.st103{fill:url(#SVGID_98_);}
+	.st104{fill:url(#SVGID_99_);}
+	.st105{fill:url(#SVGID_100_);}
+	.st106{fill:url(#SVGID_101_);}
+	.st107{fill:url(#SVGID_102_);}
+	.st108{fill:url(#SVGID_103_);}
+	.st109{fill:url(#SVGID_104_);}
+	.st110{fill:url(#SVGID_105_);}
+	.st111{fill:url(#SVGID_106_);}
+	.st112{fill:url(#SVGID_107_);}
+	.st113{fill:url(#SVGID_108_);}
+	.st114{fill:url(#SVGID_109_);}
+	.st115{fill:url(#SVGID_110_);}
+	.st116{fill:url(#SVGID_111_);}
+	.st117{fill:url(#SVGID_112_);}
+	.st118{fill:url(#SVGID_113_);}
+	.st119{fill:url(#SVGID_114_);}
+	.st120{fill:url(#SVGID_115_);}
+	.st121{fill:url(#SVGID_116_);}
+	.st122{fill:url(#SVGID_117_);}
+	.st123{fill:url(#SVGID_118_);}
+	.st124{fill:url(#SVGID_119_);}
+	.st125{fill:url(#SVGID_120_);}
+	.st126{fill:url(#SVGID_121_);}
+	.st127{fill:url(#SVGID_122_);}
+	.st128{fill:url(#SVGID_123_);}
+	.st129{fill:url(#SVGID_124_);}
+	.st130{fill:url(#SVGID_125_);}
+	.st131{fill:url(#SVGID_126_);}
+	.st132{fill:url(#SVGID_127_);}
+	.st133{fill:url(#SVGID_128_);}
+	.st134{fill:url(#SVGID_129_);}
+	.st135{fill:url(#SVGID_130_);}
+	.st136{fill:url(#SVGID_131_);}
+	.st137{fill:url(#SVGID_132_);}
+	.st138{fill:url(#SVGID_133_);}
+	.st139{fill:url(#SVGID_134_);}
+	.st140{fill:url(#SVGID_135_);}
+	.st141{fill:url(#SVGID_136_);}
+	.st142{fill:url(#SVGID_137_);}
+	.st143{fill:url(#SVGID_138_);}
+	.st144{fill:url(#SVGID_139_);}
+	.st145{fill:url(#SVGID_140_);}
+	.st146{fill:url(#SVGID_141_);}
+	.st147{fill:url(#SVGID_142_);}
+	.st148{fill:url(#SVGID_143_);}
+	.st149{fill:url(#SVGID_144_);}
+	.st150{fill:url(#SVGID_145_);}
+	.st151{fill:url(#SVGID_146_);}
+	.st152{fill:url(#SVGID_147_);}
+	.st153{fill:url(#SVGID_148_);}
+	.st154{fill:url(#SVGID_149_);}
+	.st155{fill:url(#SVGID_150_);}
+	.st156{fill:url(#SVGID_151_);}
+	.st157{fill:url(#SVGID_152_);}
+	.st158{fill:url(#SVGID_153_);}
+	.st159{fill:url(#SVGID_154_);}
+	.st160{fill:url(#SVGID_155_);}
+	.st161{fill:url(#SVGID_156_);}
+	.st162{fill:url(#SVGID_157_);}
+	.st163{fill:url(#SVGID_158_);}
+	.st164{fill:url(#SVGID_159_);}
+	.st165{fill:url(#SVGID_160_);}
+	.st166{fill:url(#SVGID_161_);}
+	.st167{fill:url(#SVGID_162_);}
+	.st168{fill:url(#SVGID_163_);}
+	.st169{fill:url(#SVGID_164_);}
+	.st170{fill:url(#SVGID_165_);}
+	.st171{fill:url(#SVGID_166_);}
+	.st172{fill:url(#SVGID_167_);}
+	.st173{fill:url(#SVGID_168_);}
+	.st174{fill:url(#SVGID_169_);}
+	.st175{fill:url(#SVGID_170_);}
+	.st176{fill:url(#SVGID_171_);}
+	.st177{fill:url(#SVGID_172_);}
+	.st178{fill:url(#SVGID_173_);}
+	.st179{fill:url(#SVGID_174_);}
+	.st180{fill:url(#SVGID_175_);}
+	.st181{fill:url(#SVGID_176_);}
+	.st182{fill:url(#SVGID_177_);}
+	.st183{fill:url(#SVGID_178_);}
+	.st184{fill:url(#SVGID_179_);}
+	.st185{fill:url(#SVGID_180_);}
+	.st186{fill:url(#SVGID_181_);}
+	.st187{fill:url(#SVGID_182_);}
+	.st188{fill:url(#SVGID_183_);}
+	.st189{fill:url(#SVGID_184_);}
+	.st190{fill:url(#SVGID_185_);}
+	.st191{fill:url(#SVGID_186_);}
+	.st192{fill:url(#SVGID_187_);}
+	.st193{fill:url(#SVGID_188_);}
+	.st194{fill:url(#SVGID_189_);}
+	.st195{fill:url(#SVGID_190_);}
+	.st196{fill:url(#SVGID_191_);}
+	.st197{fill:url(#SVGID_192_);}
+	.st198{fill:url(#SVGID_193_);}
+	.st199{fill:url(#SVGID_194_);}
+	.st200{fill:url(#SVGID_195_);}
+	.st201{fill:url(#SVGID_196_);}
+	.st202{fill:url(#SVGID_197_);}
+	.st203{fill:url(#SVGID_198_);}
+	.st204{fill:url(#SVGID_199_);}
+	.st205{fill:url(#SVGID_200_);}
+	.st206{fill:url(#SVGID_201_);}
+	.st207{fill:url(#SVGID_202_);}
+	.st208{fill:url(#SVGID_203_);}
+	.st209{fill:url(#SVGID_204_);}
+	.st210{fill:url(#SVGID_205_);}
+	.st211{fill:url(#SVGID_206_);}
+	.st212{fill:url(#SVGID_207_);}
+	.st213{fill:url(#SVGID_208_);}
+	.st214{fill:url(#SVGID_209_);}
+	.st215{fill:url(#SVGID_210_);}
+	.st216{fill:url(#SVGID_211_);}
+	.st217{fill:url(#SVGID_212_);}
+	.st218{fill:url(#SVGID_213_);}
+	.st219{fill:url(#SVGID_214_);}
+	.st220{fill:url(#SVGID_215_);}
+	.st221{fill:url(#SVGID_216_);}
+	.st222{fill:url(#SVGID_217_);}
+	.st223{fill:url(#SVGID_218_);}
+	.st224{fill:url(#SVGID_219_);}
+	.st225{fill:url(#SVGID_220_);}
+	.st226{fill:url(#SVGID_221_);}
+	.st227{fill:url(#SVGID_222_);}
+	.st228{fill:url(#SVGID_223_);}
+	.st229{fill:url(#SVGID_224_);}
+	.st230{fill:url(#SVGID_225_);}
+	.st231{fill:url(#SVGID_226_);}
+	.st232{fill:url(#SVGID_227_);}
+	.st233{fill:url(#SVGID_228_);}
+	.st234{fill:url(#SVGID_229_);}
+	.st235{fill:url(#SVGID_230_);}
+	.st236{fill:url(#SVGID_231_);}
+	.st237{fill:url(#SVGID_232_);}
+	.st238{fill:url(#SVGID_233_);}
+	.st239{fill:url(#SVGID_234_);}
+	.st240{fill:url(#SVGID_235_);}
+	.st241{fill:url(#SVGID_236_);}
+	.st242{fill:url(#SVGID_237_);}
+	.st243{fill:url(#SVGID_238_);}
+	.st244{fill:url(#SVGID_239_);}
+	.st245{fill:url(#SVGID_240_);}
+	.st246{fill:url(#SVGID_241_);}
+	.st247{fill:url(#SVGID_242_);}
+	.st248{fill:url(#SVGID_243_);}
+	.st249{fill:url(#SVGID_244_);}
+	.st250{fill:url(#SVGID_245_);}
+	.st251{fill:url(#SVGID_246_);}
+	.st252{fill:url(#SVGID_247_);}
+	.st253{fill:url(#SVGID_248_);}
+	.st254{fill:url(#SVGID_249_);}
+	.st255{fill:url(#SVGID_250_);}
+	.st256{fill:url(#SVGID_251_);}
+	.st257{fill:url(#SVGID_252_);}
+	.st258{fill:url(#SVGID_253_);}
+	.st259{fill:url(#SVGID_254_);}
+	.st260{fill:url(#SVGID_255_);}
+	.st261{fill:url(#SVGID_256_);}
+	.st262{fill:url(#SVGID_257_);}
+	.st263{fill:url(#SVGID_258_);}
+	.st264{fill:url(#SVGID_259_);}
+	.st265{fill:url(#SVGID_260_);}
+	.st266{fill:url(#SVGID_261_);}
+	.st267{fill:url(#SVGID_262_);}
+	.st268{fill:url(#SVGID_263_);}
+	.st269{fill:url(#SVGID_264_);}
+	.st270{fill:url(#SVGID_265_);}
+	.st271{fill:url(#SVGID_266_);}
+	.st272{fill:url(#SVGID_267_);}
+	.st273{fill:url(#SVGID_268_);}
+	.st274{fill:url(#SVGID_269_);}
+	.st275{fill:url(#SVGID_270_);}
+	.st276{fill:url(#SVGID_271_);}
+	.st277{fill:url(#SVGID_272_);}
+	.st278{fill:url(#SVGID_273_);}
+	.st279{fill:url(#SVGID_274_);}
+	.st280{fill:url(#SVGID_275_);}
+	.st281{fill:url(#SVGID_276_);}
+	.st282{fill:url(#SVGID_277_);}
+	.st283{fill:url(#SVGID_278_);}
+	.st284{fill:url(#SVGID_279_);}
+	.st285{fill:url(#SVGID_280_);}
+	.st286{fill:url(#SVGID_281_);}
+	.st287{fill:url(#SVGID_282_);}
+	.st288{fill:url(#SVGID_283_);}
+	.st289{fill:url(#SVGID_284_);}
+	.st290{fill:url(#SVGID_285_);}
+	.st291{fill:url(#SVGID_286_);}
+	.st292{fill:url(#SVGID_287_);}
+	.st293{fill:url(#SVGID_288_);}
+	.st294{fill:url(#SVGID_289_);}
+	.st295{fill:url(#SVGID_290_);}
+	.st296{fill:url(#SVGID_291_);}
+	.st297{fill:url(#SVGID_292_);}
+	.st298{fill:url(#SVGID_293_);}
+	.st299{fill:url(#SVGID_294_);}
+	.st300{fill:url(#SVGID_295_);}
+	.st301{fill:url(#SVGID_296_);}
+	.st302{fill:url(#SVGID_297_);}
+	.st303{fill:url(#SVGID_298_);}
+	.st304{fill:url(#SVGID_299_);}
+	.st305{fill:url(#SVGID_300_);}
+	.st306{fill:url(#SVGID_301_);}
+	.st307{fill:url(#SVGID_302_);}
+	.st308{fill:url(#SVGID_303_);}
+	.st309{fill:url(#SVGID_304_);}
+	.st310{fill:url(#SVGID_305_);}
+	.st311{fill:url(#SVGID_306_);}
+	.st312{fill:url(#SVGID_307_);}
+	.st313{fill:url(#SVGID_308_);}
+	.st314{fill:url(#SVGID_309_);}
+	.st315{fill:url(#SVGID_310_);}
+	.st316{fill:url(#SVGID_311_);}
+	.st317{fill:url(#SVGID_312_);}
+	.st318{fill:url(#SVGID_313_);}
+	.st319{fill:url(#SVGID_314_);}
+	.st320{fill:url(#SVGID_315_);}
+	.st321{fill:url(#SVGID_316_);}
+	.st322{fill:url(#SVGID_317_);}
+	.st323{fill:url(#SVGID_318_);}
+	.st324{fill:url(#SVGID_319_);}
+	.st325{fill:url(#SVGID_320_);}
+	.st326{fill:url(#SVGID_321_);}
+	.st327{fill:url(#SVGID_322_);}
+	.st328{fill:url(#SVGID_323_);}
+	.st329{fill:url(#SVGID_324_);}
+	.st330{fill:url(#SVGID_325_);}
+	.st331{fill:url(#SVGID_326_);}
+	.st332{fill:url(#SVGID_327_);}
+	.st333{fill:url(#SVGID_328_);}
+	.st334{fill:url(#SVGID_329_);}
+	.st335{fill:url(#SVGID_330_);}
+	.st336{fill:url(#SVGID_331_);}
+	.st337{fill:url(#SVGID_332_);}
+	.st338{fill:url(#SVGID_333_);}
+	.st339{fill:url(#SVGID_334_);}
+	.st340{fill:url(#SVGID_335_);}
+	.st341{fill:url(#SVGID_336_);}
+	.st342{fill:url(#SVGID_337_);}
+	.st343{fill:url(#SVGID_338_);}
+	.st344{fill:url(#SVGID_339_);}
+	.st345{fill:url(#SVGID_340_);}
+	.st346{fill:url(#SVGID_341_);}
+	.st347{fill:url(#SVGID_342_);}
+	.st348{fill:url(#SVGID_343_);}
+	.st349{fill:url(#SVGID_344_);}
+	.st350{fill:url(#SVGID_345_);}
+	.st351{fill:url(#SVGID_346_);}
+	.st352{fill:url(#SVGID_347_);}
+	.st353{fill:url(#SVGID_348_);}
+	.st354{fill:url(#SVGID_349_);}
+	.st355{fill:url(#SVGID_350_);}
+	.st356{fill:url(#SVGID_351_);}
+	.st357{fill:url(#SVGID_352_);}
+	.st358{fill:url(#SVGID_353_);}
+	.st359{fill:url(#SVGID_354_);}
+	.st360{fill:url(#SVGID_355_);}
+	.st361{fill:url(#SVGID_356_);}
+	.st362{fill:url(#SVGID_357_);}
+	.st363{fill:url(#SVGID_358_);}
+	.st364{fill:url(#SVGID_359_);}
+	.st365{fill:url(#SVGID_360_);}
+	.st366{fill:url(#SVGID_361_);}
+	.st367{fill:url(#SVGID_362_);}
+	.st368{fill:url(#SVGID_363_);}
+	.st369{fill:url(#SVGID_364_);}
+	.st370{fill:url(#SVGID_365_);}
+	.st371{fill:url(#SVGID_366_);}
+	.st372{fill:url(#SVGID_367_);}
+	.st373{fill:url(#SVGID_368_);}
+	.st374{fill:url(#SVGID_369_);}
+	.st375{fill:url(#SVGID_370_);}
+	.st376{fill:url(#SVGID_371_);}
+	.st377{fill:url(#SVGID_372_);}
+	.st378{fill:url(#SVGID_373_);}
+	.st379{fill:url(#SVGID_374_);}
+	.st380{fill:url(#SVGID_375_);}
+	.st381{fill:url(#SVGID_376_);}
+	.st382{fill:url(#SVGID_377_);}
+	.st383{fill:url(#SVGID_378_);}
+	.st384{fill:url(#SVGID_379_);}
+	.st385{fill:url(#SVGID_380_);}
+	.st386{fill:url(#SVGID_381_);}
+	.st387{fill:url(#SVGID_382_);}
+	.st388{fill:url(#SVGID_383_);}
+	.st389{fill:url(#SVGID_384_);}
+	.st390{fill:url(#SVGID_385_);}
+	.st391{fill:url(#SVGID_386_);}
+	.st392{fill:url(#SVGID_387_);}
+	.st393{fill:url(#SVGID_388_);}
+	.st394{fill:url(#SVGID_389_);}
+	.st395{fill:url(#SVGID_390_);}
+	.st396{fill:url(#SVGID_391_);}
+	.st397{fill:url(#SVGID_392_);}
+	.st398{fill:url(#SVGID_393_);}
+	.st399{fill:url(#SVGID_394_);}
+	.st400{fill:url(#SVGID_395_);}
+	.st401{fill:url(#SVGID_396_);}
+	.st402{fill:url(#SVGID_397_);}
+	.st403{fill:url(#SVGID_398_);}
+	.st404{fill:url(#SVGID_399_);}
+	.st405{fill:url(#SVGID_400_);}
+	.st406{fill:url(#SVGID_401_);}
+	.st407{fill:url(#SVGID_402_);}
+	.st408{fill:url(#SVGID_403_);}
+	.st409{fill:url(#SVGID_404_);}
+	.st410{fill:url(#SVGID_405_);}
+	.st411{fill:url(#SVGID_406_);}
+	.st412{fill:url(#SVGID_407_);}
+	.st413{fill:url(#SVGID_408_);}
+	.st414{fill:url(#SVGID_409_);}
+	.st415{fill:url(#SVGID_410_);}
+	.st416{fill:url(#SVGID_411_);}
+	.st417{fill:url(#SVGID_412_);}
+	.st418{fill:url(#SVGID_413_);}
+	.st419{fill:url(#SVGID_414_);}
+	.st420{fill:url(#SVGID_415_);}
+	.st421{fill:url(#SVGID_416_);}
+	.st422{fill:url(#SVGID_417_);}
+	.st423{fill:url(#SVGID_418_);}
+	.st424{fill:url(#SVGID_419_);}
+	.st425{fill:url(#SVGID_420_);}
+	.st426{fill:url(#SVGID_421_);}
+	.st427{fill:url(#SVGID_422_);}
+	.st428{fill:url(#SVGID_423_);}
+	.st429{fill:url(#SVGID_424_);}
+	.st430{fill:url(#SVGID_425_);}
+	.st431{fill:url(#SVGID_426_);}
+	.st432{fill:url(#SVGID_427_);}
+	.st433{fill:url(#SVGID_428_);}
+	.st434{fill:url(#SVGID_429_);}
+	.st435{fill:url(#SVGID_430_);}
+	.st436{fill:url(#SVGID_431_);}
+	.st437{fill:url(#SVGID_432_);}
+	.st438{fill:url(#SVGID_433_);}
+	.st439{fill:url(#SVGID_434_);}
+	.st440{fill:url(#SVGID_435_);}
+	.st441{fill:url(#SVGID_436_);}
+	.st442{fill:url(#SVGID_437_);}
+	.st443{fill:url(#SVGID_438_);}
+	.st444{fill:url(#SVGID_439_);}
+	.st445{fill:url(#SVGID_440_);}
+	.st446{fill:url(#SVGID_441_);}
+	.st447{fill:url(#SVGID_442_);}
+	.st448{fill:url(#SVGID_443_);}
+	.st449{fill:url(#SVGID_444_);}
+	.st450{fill:url(#SVGID_445_);}
+	.st451{fill:url(#SVGID_446_);}
+	.st452{fill:url(#SVGID_447_);}
+	.st453{fill:url(#SVGID_448_);}
+	.st454{fill:url(#SVGID_449_);}
+	.st455{fill:url(#SVGID_450_);}
+	.st456{fill:url(#SVGID_451_);}
+	.st457{fill:url(#SVGID_452_);}
+	.st458{fill:url(#SVGID_453_);}
+	.st459{fill:url(#SVGID_454_);}
+	.st460{fill:url(#SVGID_455_);}
+	.st461{fill:url(#SVGID_456_);}
+	.st462{fill:url(#SVGID_457_);}
+	.st463{fill:url(#SVGID_458_);}
+	.st464{fill:url(#SVGID_459_);}
+	.st465{fill:url(#SVGID_460_);}
+	.st466{fill:url(#SVGID_461_);}
+	.st467{fill:url(#SVGID_462_);}
+	.st468{fill:url(#SVGID_463_);}
+	.st469{fill:url(#SVGID_464_);}
+	.st470{fill:url(#SVGID_465_);}
+	.st471{fill:url(#SVGID_466_);}
+	.st472{fill:url(#SVGID_467_);}
+	.st473{fill:url(#SVGID_468_);}
+	.st474{fill:url(#SVGID_469_);}
+	.st475{fill:url(#SVGID_470_);}
+	.st476{fill:url(#SVGID_471_);}
+	.st477{fill:url(#SVGID_472_);}
+	.st478{fill:url(#SVGID_473_);}
+	.st479{fill:url(#SVGID_474_);}
+	.st480{fill:url(#SVGID_475_);}
+	.st481{fill:url(#SVGID_476_);}
+	.st482{fill:url(#SVGID_477_);}
+	.st483{fill:url(#SVGID_478_);}
+	.st484{fill:url(#SVGID_479_);}
+	.st485{fill:url(#SVGID_480_);}
+	.st486{fill:url(#SVGID_481_);}
+	.st487{fill:url(#SVGID_482_);}
+	.st488{fill:url(#SVGID_483_);}
+	.st489{fill:url(#SVGID_484_);}
+	.st490{fill:url(#SVGID_485_);}
+	.st491{fill:url(#SVGID_486_);}
+	.st492{fill:url(#SVGID_487_);}
+	.st493{fill:url(#SVGID_488_);}
+	.st494{fill:url(#SVGID_489_);}
+	.st495{fill:url(#SVGID_490_);}
+	.st496{fill:url(#SVGID_491_);}
+	.st497{fill:url(#SVGID_492_);}
+	.st498{fill:url(#SVGID_493_);}
+	.st499{fill:url(#SVGID_494_);}
+	.st500{fill:url(#SVGID_495_);}
+	.st501{fill:url(#SVGID_496_);}
+	.st502{fill:url(#SVGID_497_);}
+	.st503{fill:url(#SVGID_498_);}
+	.st504{fill:url(#SVGID_499_);}
+	.st505{fill:url(#SVGID_500_);}
+	.st506{fill:url(#SVGID_501_);}
+	.st507{fill:url(#SVGID_502_);}
+	.st508{fill:url(#SVGID_503_);}
+	.st509{fill:url(#SVGID_504_);}
+	.st510{fill:url(#SVGID_505_);}
+	.st511{fill:url(#SVGID_506_);}
+	.st512{fill:url(#SVGID_507_);}
+	.st513{fill:url(#SVGID_508_);}
+	.st514{fill:url(#SVGID_509_);}
+	.st515{fill:url(#SVGID_510_);}
+	.st516{fill:url(#SVGID_511_);}
+	.st517{fill:url(#SVGID_512_);}
+	.st518{fill:url(#SVGID_513_);}
+	.st519{fill:url(#SVGID_514_);}
+	.st520{fill:url(#SVGID_515_);}
+	.st521{fill:url(#SVGID_516_);}
+	.st522{fill:url(#SVGID_517_);}
+	.st523{fill:url(#SVGID_518_);}
+	.st524{fill:url(#SVGID_519_);}
+	.st525{fill:url(#SVGID_520_);}
+	.st526{fill:url(#SVGID_521_);}
+	.st527{fill:url(#SVGID_522_);}
+	.st528{fill:url(#SVGID_523_);}
+	.st529{fill:url(#SVGID_524_);}
+	.st530{fill:url(#SVGID_525_);}
+	.st531{fill:url(#SVGID_526_);}
+	.st532{fill:url(#SVGID_527_);}
+	.st533{fill:url(#SVGID_528_);}
+	.st534{fill:url(#SVGID_529_);}
+	.st535{fill:url(#SVGID_530_);}
+	.st536{fill:url(#SVGID_531_);}
+	.st537{fill:url(#SVGID_532_);}
+	.st538{fill:url(#SVGID_533_);}
+	.st539{fill:url(#SVGID_534_);}
+	.st540{fill:url(#SVGID_535_);}
+	.st541{fill:url(#SVGID_536_);}
+	.st542{fill:url(#SVGID_537_);}
+	.st543{fill:url(#SVGID_538_);}
+	.st544{fill:url(#SVGID_539_);}
+	.st545{fill:url(#SVGID_540_);}
+	.st546{fill:url(#SVGID_541_);}
+	.st547{fill:url(#SVGID_542_);}
+	.st548{fill:url(#SVGID_543_);}
+	.st549{fill:url(#SVGID_544_);}
+	.st550{fill:url(#SVGID_545_);}
+	.st551{fill:url(#SVGID_546_);}
+	.st552{fill:url(#SVGID_547_);}
+	.st553{fill:url(#SVGID_548_);}
+	.st554{fill:url(#SVGID_549_);}
+	.st555{fill:url(#SVGID_550_);}
+	.st556{fill:url(#SVGID_551_);}
+	.st557{fill:url(#SVGID_552_);}
+	.st558{fill:url(#SVGID_553_);}
+	.st559{fill:url(#SVGID_554_);}
+	.st560{fill:url(#SVGID_555_);}
+	.st561{fill:url(#SVGID_556_);}
+	.st562{fill:url(#SVGID_557_);}
+	.st563{fill:url(#SVGID_558_);}
+	.st564{fill:#727272;}
+	.st565{fill:url(#SVGID_559_);}
+	.st566{fill:url(#SVGID_560_);}
+	.st567{fill:url(#SVGID_561_);}
+	.st568{fill:url(#SVGID_562_);}
+	.st569{fill:url(#SVGID_563_);}
+	.st570{fill:url(#SVGID_564_);}
+	.st571{fill:url(#SVGID_565_);}
+	.st572{fill:url(#SVGID_566_);}
+	.st573{fill:url(#SVGID_567_);}
+	.st574{fill:url(#SVGID_568_);}
+	.st575{fill:url(#SVGID_569_);}
+	.st576{fill:url(#SVGID_570_);}
+	.st577{fill:url(#SVGID_571_);}
+	.st578{fill:url(#SVGID_572_);}
+	.st579{fill:url(#SVGID_573_);}
+	.st580{fill:url(#SVGID_574_);}
+	.st581{fill:url(#SVGID_575_);}
+	.st582{fill:url(#SVGID_576_);}
+	.st583{fill:url(#SVGID_577_);}
+	.st584{fill:url(#SVGID_578_);}
+	.st585{fill:url(#SVGID_579_);}
+	.st586{fill:url(#SVGID_580_);}
+	.st587{fill:url(#SVGID_581_);}
+	.st588{fill:url(#SVGID_582_);}
+	.st589{fill:url(#SVGID_583_);}
+	.st590{fill:url(#SVGID_584_);}
+	.st591{fill:url(#SVGID_585_);}
+	.st592{fill:url(#SVGID_586_);}
+	.st593{fill:url(#SVGID_587_);}
+	.st594{fill:url(#SVGID_588_);}
+	.st595{fill:url(#SVGID_589_);}
+	.st596{fill:url(#SVGID_590_);}
+	.st597{fill:url(#SVGID_591_);}
+	.st598{fill:url(#SVGID_592_);}
+	.st599{fill:url(#SVGID_593_);}
+	.st600{fill:url(#SVGID_594_);}
+	.st601{fill:url(#SVGID_595_);}
+	.st602{fill:url(#SVGID_596_);}
+	.st603{fill:url(#SVGID_597_);}
+	.st604{fill:url(#SVGID_598_);}
+	.st605{fill:url(#SVGID_599_);}
+	.st606{fill:url(#SVGID_600_);}
+	.st607{fill:url(#SVGID_601_);}
+	.st608{fill:url(#SVGID_602_);}
+	.st609{fill:url(#SVGID_603_);}
+	.st610{fill:url(#SVGID_604_);}
+	.st611{fill:url(#SVGID_605_);}
+	.st612{fill:url(#SVGID_606_);}
+	.st613{fill:url(#SVGID_607_);}
+	.st614{fill:url(#SVGID_608_);}
+	.st615{fill:url(#SVGID_609_);}
+	.st616{fill:url(#SVGID_610_);}
+	.st617{fill:url(#SVGID_611_);}
+	.st618{fill:url(#SVGID_612_);}
+	.st619{fill:url(#SVGID_613_);}
+	.st620{fill:url(#SVGID_614_);}
+	.st621{fill:url(#SVGID_615_);}
+	.st622{fill:url(#SVGID_616_);}
+	.st623{fill:url(#SVGID_617_);}
+	.st624{fill:url(#SVGID_618_);}
+	.st625{fill:url(#SVGID_619_);}
+	.st626{fill:url(#SVGID_620_);}
+	.st627{fill:url(#SVGID_621_);}
+	.st628{fill:url(#SVGID_622_);}
+	.st629{fill:url(#SVGID_623_);}
+	.st630{fill:url(#SVGID_624_);}
+	.st631{fill:url(#SVGID_625_);}
+	.st632{fill:url(#SVGID_626_);}
+	.st633{fill:url(#SVGID_627_);}
+	.st634{fill:url(#SVGID_628_);}
+	.st635{fill:url(#SVGID_629_);}
+	.st636{fill:url(#SVGID_630_);}
+	.st637{fill:url(#SVGID_631_);}
+	.st638{fill:url(#SVGID_632_);}
+	.st639{fill:url(#SVGID_633_);}
+	.st640{fill:url(#SVGID_634_);}
+	.st641{fill:url(#SVGID_635_);}
+	.st642{fill:url(#SVGID_636_);}
+	.st643{fill:url(#SVGID_637_);}
+	.st644{fill:url(#SVGID_638_);}
+	.st645{fill:url(#SVGID_639_);}
+	.st646{fill:url(#SVGID_640_);}
+	.st647{fill:url(#SVGID_641_);}
+	.st648{fill:url(#SVGID_642_);}
+	.st649{fill:url(#SVGID_643_);}
+	.st650{fill:url(#SVGID_644_);}
+	.st651{fill:url(#SVGID_645_);}
+	.st652{fill:url(#SVGID_646_);}
+	.st653{fill:url(#SVGID_647_);}
+	.st654{fill:url(#SVGID_648_);}
+	.st655{fill:url(#SVGID_649_);}
+	.st656{fill:url(#SVGID_650_);}
+	.st657{fill:url(#SVGID_651_);}
+	.st658{fill:url(#SVGID_652_);}
+	.st659{fill:url(#SVGID_653_);}
+	.st660{fill:url(#SVGID_654_);}
+	.st661{fill:url(#SVGID_655_);}
+	.st662{fill:url(#SVGID_656_);}
+	.st663{fill:url(#SVGID_657_);}
+	.st664{fill:url(#SVGID_658_);}
+	.st665{fill:url(#SVGID_659_);}
+	.st666{fill:url(#SVGID_660_);}
+	.st667{fill:url(#SVGID_661_);}
+	.st668{fill:url(#SVGID_662_);}
+	.st669{fill:url(#SVGID_663_);}
+	.st670{fill:url(#SVGID_664_);}
+	.st671{fill:url(#SVGID_665_);}
+	.st672{fill:url(#SVGID_666_);}
+	.st673{fill:url(#SVGID_667_);}
+	.st674{fill:url(#SVGID_668_);}
+	.st675{fill:url(#SVGID_669_);}
+	.st676{fill:url(#SVGID_670_);}
+	.st677{fill:url(#SVGID_671_);}
+	.st678{fill:url(#SVGID_672_);}
+	.st679{fill:url(#SVGID_673_);}
+	.st680{fill:url(#SVGID_674_);}
+	.st681{fill:url(#SVGID_675_);}
+	.st682{fill:url(#SVGID_676_);}
+	.st683{fill:url(#SVGID_677_);}
+	.st684{fill:url(#SVGID_678_);}
+	.st685{fill:url(#SVGID_679_);}
+	.st686{fill:url(#SVGID_680_);}
+	.st687{fill:url(#SVGID_681_);}
+	.st688{fill:url(#SVGID_682_);}
+	.st689{fill:url(#SVGID_683_);}
+	.st690{fill:url(#SVGID_684_);}
+	.st691{fill:url(#SVGID_685_);}
+	.st692{fill:url(#SVGID_686_);}
+	.st693{fill:url(#SVGID_687_);}
+	.st694{fill:url(#SVGID_688_);}
+	.st695{fill:url(#SVGID_689_);}
+	.st696{fill:url(#SVGID_690_);}
+	.st697{fill:url(#SVGID_691_);}
+	.st698{fill:url(#SVGID_692_);}
+	.st699{fill:url(#SVGID_693_);}
+	.st700{fill:url(#SVGID_694_);}
+	.st701{fill:url(#SVGID_695_);}
+	.st702{fill:url(#SVGID_696_);}
+	.st703{fill:url(#SVGID_697_);}
+	.st704{fill:url(#SVGID_698_);}
+	.st705{fill:url(#SVGID_699_);}
+	.st706{fill:url(#SVGID_700_);}
+	.st707{fill:url(#SVGID_701_);}
+	.st708{fill:url(#SVGID_702_);}
+	.st709{fill:url(#SVGID_703_);}
+	.st710{fill:url(#SVGID_704_);}
+	.st711{fill:url(#SVGID_705_);}
+	.st712{fill:url(#SVGID_706_);}
+	.st713{fill:url(#SVGID_707_);}
+	.st714{fill:url(#SVGID_708_);}
+	.st715{fill:url(#SVGID_709_);}
+	.st716{fill:url(#SVGID_710_);}
+	.st717{fill:url(#SVGID_711_);}
+	.st718{fill:url(#SVGID_712_);}
+	.st719{fill:url(#SVGID_713_);}
+	.st720{fill:url(#SVGID_714_);}
+	.st721{fill:url(#SVGID_715_);}
+	.st722{fill:url(#SVGID_716_);}
+	.st723{fill:url(#SVGID_717_);}
+	.st724{fill:url(#SVGID_718_);}
+	.st725{fill:url(#SVGID_719_);}
+	.st726{fill:url(#SVGID_720_);}
+	.st727{fill:url(#SVGID_721_);}
+	.st728{fill:url(#SVGID_722_);}
+	.st729{fill:url(#SVGID_723_);}
+	.st730{fill:url(#SVGID_724_);}
+	.st731{fill:url(#SVGID_725_);}
+	.st732{fill:url(#SVGID_726_);}
+	.st733{fill:url(#SVGID_727_);}
+	.st734{fill:url(#SVGID_728_);}
+	.st735{fill:url(#SVGID_729_);}
+	.st736{fill:url(#SVGID_730_);}
+	.st737{fill:url(#SVGID_731_);}
+	.st738{fill:url(#SVGID_732_);}
+	.st739{fill:url(#SVGID_733_);}
+	.st740{fill:url(#SVGID_734_);}
+	.st741{fill:url(#SVGID_735_);}
+	.st742{fill:url(#SVGID_736_);}
+	.st743{fill:url(#SVGID_737_);}
+	.st744{fill:url(#SVGID_738_);}
+	.st745{fill:url(#SVGID_739_);}
+	.st746{fill:url(#SVGID_740_);}
+	.st747{fill:url(#SVGID_741_);}
+	.st748{fill:url(#SVGID_742_);}
+	.st749{fill:url(#SVGID_743_);}
+	.st750{fill:url(#SVGID_744_);}
+	.st751{fill:url(#SVGID_745_);}
+	.st752{fill:url(#SVGID_746_);}
+	.st753{fill:url(#SVGID_747_);}
+	.st754{fill:url(#SVGID_748_);}
+	.st755{fill:url(#SVGID_749_);}
+	.st756{fill:url(#SVGID_750_);}
+	.st757{fill:url(#SVGID_751_);}
+	.st758{fill:url(#SVGID_752_);}
+	.st759{fill:url(#SVGID_753_);}
+	.st760{fill:url(#SVGID_754_);}
+	.st761{fill:url(#SVGID_755_);}
+	.st762{fill:url(#SVGID_756_);}
+	.st763{fill:url(#SVGID_757_);}
+	.st764{fill:url(#SVGID_758_);}
+	.st765{fill:url(#SVGID_759_);}
+	.st766{fill:url(#SVGID_760_);}
+	.st767{fill:url(#SVGID_761_);}
+	.st768{fill:url(#SVGID_762_);}
+	.st769{fill:url(#SVGID_763_);}
+	.st770{fill:url(#SVGID_764_);}
+	.st771{fill:url(#SVGID_765_);}
+	.st772{fill:url(#SVGID_766_);}
+	.st773{fill:url(#SVGID_767_);}
+	.st774{fill:url(#SVGID_768_);}
+	.st775{fill:url(#SVGID_769_);}
+	.st776{fill:url(#SVGID_770_);}
+	.st777{fill:url(#SVGID_771_);}
+	.st778{fill:url(#SVGID_772_);}
+	.st779{fill:url(#SVGID_773_);}
+	.st780{fill:url(#SVGID_774_);}
+	.st781{fill:url(#SVGID_775_);}
+	.st782{fill:url(#SVGID_776_);}
+	.st783{fill:url(#SVGID_777_);}
+	.st784{fill:url(#SVGID_778_);}
+	.st785{fill:url(#SVGID_779_);}
+	.st786{fill:url(#SVGID_780_);}
+	.st787{fill:url(#SVGID_781_);}
+	.st788{fill:url(#SVGID_782_);}
+	.st789{fill:url(#SVGID_783_);}
+	.st790{fill:url(#SVGID_784_);}
+	.st791{fill:url(#SVGID_785_);}
+	.st792{fill:url(#SVGID_786_);}
+	.st793{fill:url(#SVGID_787_);}
+	.st794{fill:url(#SVGID_788_);}
+	.st795{fill:url(#SVGID_789_);}
+	.st796{fill:url(#SVGID_790_);}
+	.st797{fill:url(#SVGID_791_);}
+	.st798{fill:url(#SVGID_792_);}
+	.st799{fill:url(#SVGID_793_);}
+	.st800{fill:url(#SVGID_794_);}
+	.st801{fill:url(#SVGID_795_);}
+	.st802{fill:url(#SVGID_796_);}
+	.st803{fill:url(#SVGID_797_);}
+	.st804{fill:url(#SVGID_798_);}
+	.st805{fill:url(#SVGID_799_);}
+	.st806{fill:url(#SVGID_800_);}
+	.st807{fill:url(#SVGID_801_);}
+	.st808{fill:url(#SVGID_802_);}
+	.st809{fill:url(#SVGID_803_);}
+	.st810{fill:url(#SVGID_804_);}
+	.st811{fill:url(#SVGID_805_);}
+	.st812{fill:url(#SVGID_806_);}
+	.st813{fill:url(#SVGID_807_);}
+	.st814{fill:url(#SVGID_808_);}
+	.st815{fill:url(#SVGID_809_);}
+	.st816{fill:url(#SVGID_810_);}
+	.st817{fill:url(#SVGID_811_);}
+	.st818{fill:url(#SVGID_812_);}
+	.st819{fill:url(#SVGID_813_);}
+	.st820{fill:url(#SVGID_814_);}
+	.st821{fill:url(#SVGID_815_);}
+	.st822{fill:url(#SVGID_816_);}
+	.st823{fill:url(#SVGID_817_);}
+	.st824{fill:url(#SVGID_818_);}
+	.st825{fill:url(#SVGID_819_);}
+	.st826{fill:url(#SVGID_820_);}
+	.st827{fill:url(#SVGID_821_);}
+	.st828{fill:url(#SVGID_822_);}
+	.st829{fill:url(#SVGID_823_);}
+	.st830{fill:url(#SVGID_824_);}
+	.st831{fill:url(#SVGID_825_);}
+	.st832{fill:url(#SVGID_826_);}
+	.st833{fill:url(#SVGID_827_);}
+	.st834{fill:url(#SVGID_828_);}
+	.st835{fill:url(#SVGID_829_);}
+	.st836{fill:url(#SVGID_830_);}
+	.st837{fill:url(#SVGID_831_);}
+	.st838{fill:url(#SVGID_832_);}
+	.st839{fill:url(#SVGID_833_);}
+	.st840{fill:url(#SVGID_834_);}
+	.st841{fill:url(#SVGID_835_);}
+	.st842{fill:url(#SVGID_836_);}
+	.st843{fill:url(#SVGID_837_);}
+	.st844{fill:url(#SVGID_838_);}
+	.st845{fill:url(#SVGID_839_);}
+	.st846{fill:url(#SVGID_840_);}
+	.st847{fill:url(#SVGID_841_);}
+	.st848{fill:url(#SVGID_842_);}
+	.st849{fill:url(#SVGID_843_);}
+	.st850{fill:url(#SVGID_844_);}
+	.st851{fill:url(#SVGID_845_);}
+	.st852{fill:url(#SVGID_846_);}
+	.st853{fill:url(#SVGID_847_);}
+	.st854{fill:url(#SVGID_848_);}
+	.st855{fill:url(#SVGID_849_);}
+	.st856{fill:url(#SVGID_850_);}
+	.st857{fill:url(#SVGID_851_);}
+	.st858{fill:url(#SVGID_852_);}
+	.st859{fill:url(#SVGID_853_);}
+	.st860{fill:url(#SVGID_854_);}
+	.st861{fill:url(#SVGID_855_);}
+	.st862{fill:url(#SVGID_856_);}
+	.st863{fill:url(#SVGID_857_);}
+	.st864{fill:url(#SVGID_858_);}
+	.st865{fill:url(#SVGID_859_);}
+	.st866{fill:url(#SVGID_860_);}
+	.st867{fill:url(#SVGID_861_);}
+	.st868{fill:url(#SVGID_862_);}
+	.st869{fill:url(#SVGID_863_);}
+	.st870{fill:url(#SVGID_864_);}
+	.st871{fill:url(#SVGID_865_);}
+	.st872{fill:url(#SVGID_866_);}
+	.st873{fill:url(#SVGID_867_);}
+	.st874{fill:url(#SVGID_868_);}
+	.st875{fill:url(#SVGID_869_);}
+	.st876{fill:url(#SVGID_870_);}
+	.st877{fill:url(#SVGID_871_);}
+	.st878{fill:url(#SVGID_872_);}

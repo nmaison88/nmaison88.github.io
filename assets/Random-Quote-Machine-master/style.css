@@ -1,0 +1,114 @@
+body {
+	background-color: powderblue;
+	margin: 0;
+}
+
+#wrapper {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	font-family: "Courgette", cursive;
+	font-size: 54px;
+}
+
+button {
+	background-color: #008cba; /* Blue */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 24px;
+	margin: auto;
+	display: block;
+	border-radius: 25px;
+}
+button:hover {
+	background-color: #004b6f;
+	color: white;
+}
+
+#quotation {
+	text-align: left;
+	font-size: 80px;
+	font-family: "Sedgwick Ave", cursive;
+	height: 44px;
+}
+#quoteDisplay {
+	text-align: center;
+	justify-content: center;
+	font-size: 40px;
+	font-family: "Sedgwick Ave", cursive;
+}
+#container {
+	background-color: white;
+	border-radius: 25px;
+	color: powderblue;
+	margin: auto;
+	display: block;
+	vertical-align: middle;
+	text-align: center;
+	border: solid 2px white;
+	/*	min-height: 300px;
+*/
+	width: 700px;
+}
+.bounce {
+	position: fixed;
+	-webkit-animation: bounce 1s;
+	-webkit-animation: fade 2s;
+}
+@-webkit-keyframes bounce {
+	0% {
+		bottom: 5px;
+	}
+	25%,
+	75% {
+		bottom: 15px;
+	}
+	50% {
+		bottom: 20px;
+	}
+	100% {
+		bottom: 0;
+	}
+}
+@-webkit-keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 720px) {
+	#wrapper {
+		width: 100%;
+	}
+	#container {
+		width: 400px;
+	}
+	h1 {
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 408px) {
+	#wrapper {
+		width: 100%;
+	}
+	#container {
+		width: 300px;
+	}
+	h1 {
+		font-size: 30px;
+	}
+}

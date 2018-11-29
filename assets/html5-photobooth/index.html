@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>html5 video</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+
+<style>
+  body{
+    margin:0;
+  }
+
+
+  @media (max-width: 1200px) {
+    #canvas0, #canvas1, #canvas2, #canvas3, #canvas4, #canvas5{
+        width:250px;
+        height:auto;
+    }
+}
+  @media (max-width: 1070px) {
+    #canvas0, #canvas1, #canvas2, #canvas3, #canvas4, #canvas5{
+        width:200px;
+        height:auto;
+    }
+}
+@media (max-width: 870px) {
+    #canvas0, #canvas1, #canvas2, #canvas3, #canvas4, #canvas5{
+        width:150px;
+        height:auto;
+    }
+}
+ @media (max-width: 684px) {
+    #canvas0, #canvas1, #canvas2, #canvas3, #canvas4, #canvas5{
+        width:120px;
+        height:auto;
+    }
+}
+ @media (max-width: 544px) {
+    #canvas0, #canvas1, #canvas2, #canvas3, #canvas4, #canvas5{
+        width:100px;
+        height:auto;
+    }
+}
+
+video{
+  /*margin:5% 0 5% 0;*/
+
+/*text-align: center;
+*/}
+.center { margin: 50px auto; width: 100%; }
+h1{
+  text-align: center;
+}
+#buttongroup{
+text-align: center;}
+  #photoreel{
+    display: inline-block; 
+/*    background-color: black;
+*/  /*  margin:25px;
+    padding: 10px;*/
+}
+
+/*color filters*/
+  .grayscale{filter: grayscale(100%);}
+  .sepia{filter: sepia(100%);}
+  .brightness{filter: brightness(200%);}
+  .contrast{filter: contrast(200%);}
+  .hue-rotate{filter: hue-rotate(90deg);}
+  .hue-rotate2{filter: hue-rotate(30deg);}
+  .hue-rotate3{filter: hue-rotate(180deg);}
+  .saturate{filter: saturate(400%);}
+  .invert{filter: invert(100%);}
+
+ #warning-message { display: none; }
+    @media only screen and (orientation:portrait){
+        #wrapper { display:none; }
+        #warning-message { display:block; }
+    }
+    @media only screen and (orientation:landscape){
+        #warning-message { display:none; }
+    }
+</style>
+<body>
+  <div style="text-align: center;" id="warning-message">
+    this website is only viewable in landscape mode
+</div>
+  <div class="container-fluid">
+  <!-- Content here -->
+  <h1>PhotoBooth</h1>
+  <div class="row">
+    <div id="photoreel" style="text-align: center;" class="col-3 ">
+<canvas id="canvas0" width="320" height="240"></canvas><br>
+<canvas id="canvas1" width="320" height="240"></canvas><br>
+<canvas id="canvas2" width="320" height="240"></canvas><br>
+  </div>
+    <div class="col-6 bg-light">
+  <video id="video" class="center"  width="960" height="540" autoplay></video>
+  <div id="buttongroup"><button id="snap">Snap Photo</button>
+<button id="reset" onclick="reset()">Reset</button>
+<button id="print" onclick="print()">Print</button>
+<button id="cssfilters-apply">filter</button>
+<input type="button" id="stop" value="Stop Video" onclick="killcam()"></input>
+</div>
+    </div>
+    <div id="photoreel" style="text-align: center;" class="col-3 ">
+<canvas id="canvas3" width="320" height="240"></canvas><br>
+<canvas id="canvas4" width="320" height="240"></canvas><br>
+<canvas id="canvas5" width="320" height="240"></canvas>  </div>
+  </div>
+
+
+
+
+
+</div>
+
+</div>
+
+</body>
+<!-- End of container -->
+<script>// Grab elements, create settings, etc.
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
+
+}
+
+// Elements for taking the snapshot
+var count=0;
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+  var name='canvas' + count;
+var canvas = document.getElementById(name);
+var context = canvas.getContext('2d');
+
+var video = document.getElementById('video');
+var y = document.getElementById("video").className;
+console.log(y);
+if(y==="grayscale"){
+      context.filter = "grayscale(100)";            // use CSS filter here
+}
+else if(y==="sepia"){
+      context.filter = "sepia(100)";            // use CSS filter here
+
+}else if(y==="brightness"){
+      context.filter = "brightness(200%)";            // use CSS filter here check that
+
+}else if(y==="contrast"){
+      context.filter = "contrast(200%)";            // use CSS filter here
+
+}else if(y==="hue-rotate"){
+      context.filter = "hue-rotate(90deg)";            // use CSS filter here
+
+}else if(y==="hue-rotate2"){
+      context.filter = "hue-rotate(30deg)";            // use CSS filter here
+
+}else if(y==="hue-rotate3"){
+      context.filter = "hue-rotate(180deg)";            // use CSS filter here
+
+}else if(y==="saturate"){
+      context.filter = "saturate(400%)";            // use CSS filter here
+
+}else if(y==="invert"){
+      context.filter = "invert(100)";            // use CSS filter here
+
+}
+    // context.filter = "saturate(8)";            // use CSS filter here
+
+  context.drawImage(video, 0, 0, 320, 240);
+  if(count<=4){
+    count ++;
+  }else{
+    document.getElementById("snap").disabled = true;
+
+    count=0;
+  }
+  console.log('name:' +name);
+
+});
+
+//clear out all of the Snapped Photos. 
+function reset(){
+      count=0;
+
+  // todo RESET THE FILTERS On THE VIDEO AND CANVAS DRAW AND PICTURE COUNTER
+      document.getElementById("snap").disabled = false;
+    var canvas0 = document.getElementById('canvas0');
+    var context0 = canvas0.getContext('2d');
+
+    var canvas1 = document.getElementById('canvas1');
+    var context1 = canvas1.getContext('2d');
+
+     var canvas2 = document.getElementById('canvas2');
+    var context2 = canvas2.getContext('2d');
+
+     var canvas3 = document.getElementById('canvas3');
+    var context3 = canvas3.getContext('2d');
+
+    var canvas4 = document.getElementById('canvas4');
+    var context4 = canvas4.getContext('2d');
+
+    var canvas5 = document.getElementById('canvas5');
+    var context5 = canvas5.getContext('2d');
+    // var video = document.getElementById('video');
+      context0.clearRect(0, 0, canvas0.width, canvas0.height);
+      context1.clearRect(0, 0, canvas1.width, canvas1.height);
+      context2.clearRect(0, 0, canvas2.width, canvas2.height);
+      context3.clearRect(0, 0, canvas3.width, canvas3.height);
+      context4.clearRect(0, 0, canvas4.width, canvas4.height);
+      context5.clearRect(0, 0, canvas5.width, canvas5.height);
+
+
+
+
+}
+
+</script>
+
+<script>
+const cssFiltersButton =
+  document.querySelector('#cssfilters-apply');
+let filterIndex = 0;
+const filters = [
+  'grayscale',
+  'sepia',
+  'brightness',
+  'contrast',
+  'hue-rotate',
+  'hue-rotate2',
+  'hue-rotate3',
+  'saturate',
+  'invert',
+  ''//clears the filter to regular
+];
+
+  cssFiltersButton.onclick = function() {
+    console.log(video);
+  video.className = filters[filterIndex++ % filters.length];
+};
+
+
+function killcam(){
+var track = video.srcObject.getTracks()[0];  
+// ...
+track.stop();
+
+}
+
+function print(){
+  console.log("PRINT");
+
+    window.print();
+
+}
+  
+</script>
+</body>
+</html>
