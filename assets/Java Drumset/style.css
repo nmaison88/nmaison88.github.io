@@ -1,10 +1,10 @@
 
-.highlight{
+/*.highlight{
 fill: gold;
 color: red;
 background-color: pink;
 opacity: 0.7;
-}
+}*/
 
 .wrapper {
   display: grid;
@@ -38,8 +38,10 @@ opacity: 0.7;
 
 
 body{
-	background-color: black;
-	color: white;
+  background-color: #333;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
 
@@ -121,15 +123,14 @@ margin:auto;
 	.st3{fill:url(#SVGID_2_);}
 	.st4{fill:url(#SVGID_3_);}
 	.st5{fill:url(#Kick_1_);}
-	#Kick:hover {opacity: 0.8;}
-	#Hats_1_:hover {opacity: 0.8;}
-	#Crash_2:hover {opacity: 0.8;}
-	#Crash_1:hover {opacity: 0.8;}
-	#Tom3:hover {opacity: 0.8;
-		}
-	#Tom1:hover {opacity: 0.8;}
-	#Snare:hover {opacity: 0.8;}
-	#Tom2_1_:hover {opacity: 0.8;}
+	#Kick:hover {fill:green; opacity: 0.3;}
+	#Hats_1_:hover {fill:green; opacity: 0.3;}
+	#Crash_2:hover {fill:green; opacity: 0.3;}
+	#Crash_1:hover {fill:green; opacity: 0.3;}
+	#Tom3:hover{fill:green; opacity: 0.3;}
+	#Tom1:hover {fill:green; opacity: 0.3;}
+	#Snare:hover {fill:green; opacity: 0.3;}
+	#Tom2_1_:hover {fill:green; opacity: 0.3;}
 	.st6{fill:url(#SVGID_4_);}
 	.st7{fill:url(#SVGID_5_);}
 	.st8{fill:url(#SVGID_6_);}

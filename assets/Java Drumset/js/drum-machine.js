@@ -26,10 +26,10 @@ var data = {
 
 // Runs off milliseconds. so since 1 bpm is 60000ms  16th notes are 60000ms(1bpm) divided by 4 
 function start(){
-  console.log(played);
+  // console.log(played);
   if (played==false){
     var tempo= (60000 /document.getElementById('tempobox').value /4);
-      console.log(tempo);
+      // console.log(tempo);
 
 myVar=setInterval(function() {
 
@@ -52,7 +52,7 @@ document.getElementById("tempobox").disabled = true;
 }
 else {
     clearInterval(myVar);
-      console.log("cleared");
+      // console.log("cleared");
       played=false;
         data.step = (0) % data.tracks[0].steps.length;
 

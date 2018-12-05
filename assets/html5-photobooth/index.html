@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>html5 video</title>
+  <title>html5 Photobooth</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
@@ -109,12 +109,14 @@ text-align: center;}
   </div>
     <div class="col-6 bg-light">
   <video id="video"  width="960" height="540" style="margin: 50px auto; width: 100%;" autoplay></video>
-  <div id="buttongroup"><button id="snap" onclick="sound()">Snap Photo</button>
-<button id="reset" onclick="reset()">Clear</button>
-<button id="reset" onclick="startcam()">StartCam</button>
-<!-- <button id="print" onclick="download()">Download</button>
- --><button id="cssfilters-apply">filter</button>
-<input type="button" id="stop" value="Stop Video" onclick="killcam()"></input>
+  <div id="buttongroup"><button class="btn btn-success" id="snap" onclick="sound()">Snap Photo</button>
+  	  <button class="btn btn-primary" id="snaptime" onclick="">Timed Photo</button>
+
+<button class="btn btn-dark" id="reset" onclick="reset()">Clear</button>
+<button class="btn btn-info" id="reset" onclick="startcam()">StartCam</button>
+<!-- <button class="btn btn-dark" id="print" onclick="download()">Download</button>
+ --><button class="btn btn-warning" id="cssfilters-apply">filter</button>
+<input type="button" class="btn btn-danger" id="stop" value="Stop Video" onclick="killcam()"></input>
 </div>
     </div>
     <div id="photoreel" style="text-align: center;" class="col-3 ">
@@ -216,6 +218,63 @@ else if(y==="sepia"){
 
 });
 
+document.getElementById("snaptime").addEventListener("click", function() {
+setTimeout(snapdelay, 3000);
+
+});
+
+function snapdelay(){
+	sound();
+
+  var name='canvas' + count;
+
+var canvas = document.getElementById(name);
+var context = canvas.getContext('2d');
+
+var video = document.getElementById('video');
+var y = document.getElementById("video").className;
+// console.log(y);
+if(y==="grayscale"){
+      context.filter = "grayscale(100)";            // use CSS filter here
+}
+else if(y==="sepia"){
+      context.filter = "sepia(100)";            // use CSS filter here
+
+}else if(y==="brightness"){
+      context.filter = "brightness(200%)";            // use CSS filter here check that
+
+}else if(y==="contrast"){
+      context.filter = "contrast(200%)";            // use CSS filter here
+
+}else if(y==="hue-rotate"){
+      context.filter = "hue-rotate(90deg)";            // use CSS filter here
+
+}else if(y==="hue-rotate2"){
+      context.filter = "hue-rotate(30deg)";            // use CSS filter here
+
+}else if(y==="hue-rotate3"){
+      context.filter = "hue-rotate(180deg)";            // use CSS filter here
+
+}else if(y==="saturate"){
+      context.filter = "saturate(400%)";            // use CSS filter here
+
+}else if(y==="invert"){
+      context.filter = "invert(100)";            // use CSS filter here
+
+}
+    // context.filter = "saturate(8)";            // use CSS filter here
+
+  context.drawImage(video, 0, 0, 320, 240);
+  if(count<=4){
+    count ++;
+  }else{
+    document.getElementById("snap").disabled = true;
+
+    count=0;
+  }
+  console.log('name:' +name);
+
+};
 
 
 
@@ -254,9 +313,17 @@ function reset(){
 
    function sound() {
     // console.log("play!");
-    document.getElementById("audio").play();
 
-    }
+    if (!"audio".paused) {
+         document.getElementById("audio").currentTime = 0;
+		document.getElementById("audio").play();
+        }else{
+        document.getElementById("audio").play();
+        
+        }}
+
+
+    
 // var button = document.getElementById('btn-download');
 // button.addEventListener('click', function (e) {
 //     var dataURL = canvas.toDataURL('image/png');
@@ -336,6 +403,7 @@ const cssFiltersButton =
 let filterIndex = 0;
 const filters = [
   'grayscale',
+  'invert',
   'sepia',
   'brightness',
   'contrast',
@@ -343,7 +411,7 @@ const filters = [
   'hue-rotate2',
   'hue-rotate3',
   'saturate',
-  'invert',
+  
   ''//clears the filter to regular
 ];
 

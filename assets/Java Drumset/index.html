@@ -13,12 +13,11 @@
        // console.log(event.code);
        //Kick1 Trigger
   if (event.getModifierState("CapsLock")) {
-       console.log("NETH ROX");
-       document.getElementById("capscheck").innerHTML = "AHHH YEAHHH NOW PLAY IT SON!";
+       // console.log("NETH ROX");
+       document.getElementById("capscheck").innerHTML = "YEAHHH, NOW PLAY IT!";
 
 
        if(event.code=="KeyJ"){
-        highlighterclass();
        			// document.getElementById("Kick").play();
        			 if (!"Kick".paused) {
          document.getElementById("Kick").currentTime = 0;
@@ -113,7 +112,7 @@ else{
  	  });
         $('.drum').click(function() {
         var drum =(event.srcElement.id);
-        console.log(drum);
+        // console.log(drum);
         if (!drum.paused) {
          document.getElementById(drum).currentTime = 0;
 		document.getElementById(drum).play();
@@ -247,7 +246,7 @@ else{
 			var vol=slider.value/100;
 			var level=slider.value;
 
-			console.log("level" +level);
+			// console.log("level" +level);
 			output.innerHTML = level;
 			if(id=="Kickvol"){
 				// console.log("do something with kick");
