@@ -98,9 +98,11 @@ text-align: center;}
   <div style="text-align: center;" id="warning-message">
     this website is only viewable in landscape mode
 </div>
+
   <div class="container-fluid">
   <!-- Content here -->
   <h1>PhotoBooth</h1>
+
   <div class="row">
     <div id="photoreel" style="text-align: center;" class="col-3 ">
 <canvas id="canvas0" width="320" height="240"></canvas><br>
@@ -108,10 +110,11 @@ text-align: center;}
 <canvas id="canvas2" width="320" height="240"></canvas><br>
   </div>
     <div class="col-6 bg-light">
+    	  <div style="position: fixed; margin: 0; padding: 0; top: 50%; bottom: 50%; left: 50%; right: 50%; color: white; font-size: 10em;" id="countdowntimer"></div>
+
   <video id="video"  width="960" height="540" style="margin: 50px auto; width: 100%;" autoplay></video>
   <div id="buttongroup"><button class="btn btn-success" id="snap" onclick="sound()">Snap Photo</button>
-  	  <button class="btn btn-primary" id="snaptime" onclick="">Timed Photo</button>
-
+  	  <button class="btn btn-primary" id="snaptime" onclick="photoTimer();">Timed Photo<!-- <span id="countdowntimer"> </span> --></button>
 <button class="btn btn-dark" id="reset" onclick="reset()">Clear</button>
 <button class="btn btn-info" id="reset" onclick="startcam()">StartCam</button>
 <!-- <button class="btn btn-dark" id="print" onclick="download()">Download</button>
@@ -162,6 +165,7 @@ function startcam(){
 
 }
 }
+
 
 // Elements for taking the snapshot
 var count=0;
@@ -219,12 +223,23 @@ else if(y==="sepia"){
 });
 
 document.getElementById("snaptime").addEventListener("click", function() {
-setTimeout(snapdelay, 3000);
+snapdelay();
 
 });
 
 function snapdelay(){
-	sound();
+	var timeleft = 10;
+	    document.getElementById("countdowntimer").textContent = timeleft;
+
+    var photoTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0){
+        clearInterval(photoTimer);
+            document.getElementById("countdowntimer").textContent ="";
+
+
+sound();
 
   var name='canvas' + count;
 
@@ -272,7 +287,12 @@ else if(y==="sepia"){
 
     count=0;
   }
-  console.log('name:' +name);
+  // console.log('name:' +name);
+
+    }
+    },1000);
+
+	
 
 };
 
