@@ -1,0 +1,273 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>ADMIN PAGE</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- FontAwesome import -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-default ">
+        <a class="navbar-brand" href="#">WeatherChecker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Settings.html">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Notifications.html">Notifications</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav navbar-right">
+                <li><a class="nav-link" href="#">Welcome, Neth</a></li>
+                <li><a class="nav-link" href="login.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+<header id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1><i class="fas fa-cog"></i>Dashboard<small> WeatherChecker </small></h1>
+                <input class="form-control mr-sm-2" type="text" pattern="[0-9]{5}" placeholder="Enter Location ZIP" id="zipcode"
+                    aria-label="Search">
+                <button class="btn main-color-bg my-2 my-sm-0" id="search" type="submit">Get Weather info</button>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+
+        </div>
+    </div>
+
+</header>
+   
+<section id="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="active">Overview</li>
+
+        </ol>
+    </div>
+</section>
+
+<section id="main">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group ">
+                <a href="#" class="list-group-item list-group-item-action active main-color-bg">
+                    Overview
+                </a>
+                <button id="forecast" class="list-group-item list-group-item-action"><i class="fas fa-chart-bar"></i>
+                    Forecast</button>
+                <button id="showmap" class="list-group-item list-group-item-action"><i class="fas fa-map-marked-alt"></i>
+                    Map location</button>
+            </div>
+            <div class="card">
+                <h4>Humidity </h4>
+                <div class="progress">
+                    <div id='humidity' class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+                <h4>Clouds </h4>
+                <div class="progress">
+                    <div id='clouds' class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">50%</div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header main-color-bg">
+                    Weather Overview
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><i class="fas fa-wind"></i> Details:</h5>
+                                <p id="details" class="card-text text-center">Enter Zip</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><i class="fas fa-thermometer-three-quarters"></i>
+                                    Current Temp:</h5>
+                                <p class="card-text text-center" id="currentTemp">Enter Zip</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><i class="fas fa-temperature-high"></i> Current Hi:</h5>
+                                <p class="card-text text-center" id="currentTemphi">Enter Zip</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-center"><i class="fas fa-temperature-low"></i> Current Low:</h5>
+                                <p class="card-text text-center " id="currentTemplow">Enter Zip</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--Google map-->
+            <div id="map-container-google-1" class="z-depth-1-half map-container hidden" style=" height: 200px;">
+                <iframe  src="https://maps.google.com/maps?q=92123&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="1" style="border:1" allowfullscreen></iframe>
+            </div>
+            <!--Google Maps-->
+            <table class="table">
+                <h4 class="text-center">Weather Forecast Table</h4>
+                <thead class="main-color-bg">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">High</th>
+                        <th scope="col">Low</th>
+                        <th scope="col">humidity</th>
+                        <th scope="col">General Description</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+</section>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        console.log('online');
+
+        $('#forecast').click(function () {
+            var $zip = $('#zipcode').val();
+            console.log('Getting Forecast');
+            $.get("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?zip=" + $zip + ",us&appid=bc5ee717c1f7c0ffda3b2a9cd555731b", function (data) {
+                $(".result").html(data);
+                // console.log(data);
+                var i = 0;
+                Object.keys(data.list).forEach(function (key) {
+                    var row = '<tr>' +
+                        '<td class="text-center">' + data.list[i].dt_txt + '</td>' +
+                        '<td class="text-center">' + Math.round(data.list[i].main.temp_max * 9 / 5 - 459.67) + "&deg" + '</td>' +
+                        '<td class="text-center">' + Math.round(data.list[i].main.temp_min * 9 / 5 - 459.67) + "&deg" + '</td>' +
+                        '<td class="text-center">' + data.list[i].main.humidity + "%" + '</td>' +
+                        '<td class="text-center">' + data.list[i].weather[0].description + '</td>' +
+                        '</tr>';
+
+                    $('table').append(row);
+                    // console.log(i);
+                    // console.log(data.city.name);
+                    // console.log(data.list[i].dt_txt);
+                    // console.log(data.list[i].main.temp);
+                    // console.log(data.list[i].main.temp_min);
+                    // console.log(data.list[i].main.temp_max);
+                    // console.log(data.list[i].main.humidity);
+                    // console.log(data.list[i].weather[0].description);
+                    i++;
+                })
+                $( "tr:odd" ).addClass( "stripe" );
+
+
+            });
+
+        })//end of forecast get function
+
+        $('#search').click(function () {
+            var $zip = $('#zipcode').val();
+            console.log($zip);
+            console.log('get ajax');
+            $.get("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?zip=" + $zip + ",us&appid=bc5ee717c1f7c0ffda3b2a9cd555731b", function (data) {
+                $(".result").html(data);
+                var recvData = data;
+                $('#mapbox').attr('src', "https://maps.google.com/maps?q=" + $zip + "&t=&z=13&ie=UTF8&iwloc=&output=embed");
+                $('#details').html(data.weather[0].description + " in " + data.name);
+                $('#currentTemp').html(Math.round(data.main.temp * 9 / 5 - 459.67) + "&deg");
+                $('#currentTemphi').html(Math.round(data.main.temp_max * 9 / 5 - 459.67) + "&deg");
+                $('#currentTemplow').html(Math.round(data.main.temp_min * 9 / 5 - 459.67) + "&deg");
+                $('#humidity').html(data.main.humidity + "%");
+                $('#humidity').css('width', data.main.humidity + "%");
+                $('#clouds').html(data.clouds.all + "%");
+
+                $('#clouds').css('width', data.clouds.all + "%");
+            });
+        })//end of get weather function
+
+        var maptoggle='false';
+        $('#showmap').click(function () {
+           if( $("#map-container-google-1").hasClass("hidden")){
+            $('#map-container-google-1').removeClass('hidden');
+            $('#showmap').addClass('main-color-bg');
+
+
+           }
+            else{
+                $('#map-container-google-1').addClass('hidden');
+                $('#showmap').removeClass('main-color-bg');
+
+            }
+        })
+        // end show/hide map box
+
+
+
+    });
+</script>
+        
+  </body>
+</html>
