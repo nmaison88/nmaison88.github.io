@@ -196,6 +196,7 @@
 
         $('#forecast').click(function () {
             var $zip = $('#zipcode').val();
+            $('#mapbox').attr('src', "https://maps.google.com/maps?q=" + $zip + "&t=&z=13&ie=UTF8&iwloc=&output=embed");
             console.log('Getting Forecast');
             $.get("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?zip=" + $zip + ",us&appid=bc5ee717c1f7c0ffda3b2a9cd555731b", function (data) {
                 $(".result").html(data);
