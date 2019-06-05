@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+
+  <title>Driver Scorecard</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <style>
+  
+  .bordered{
+    border:1px solid #000000;
+  }
+  #GroupViewContainer{
+      display: none;
+  }
+  #OverviewContainer{
+      display: block;
+  }
+  #VehicleViewContainer{
+      display: none;
+  } 
+  .sm-marg{ margin: 25px; }
+  </style>
+
+<body>
+        <nav class="nav">
+                <a id="Overview" class="nav-link active" href="#">Overview</a>
+                <a id="GroupView" class="nav-link" href="#">Group View</a>
+                <a id="VehicleView" class="nav-link" href="#">Vehicle View</a>
+              </nav>
+
+    <section id="OverViewContainer" >
+            <h2 class=" ml-5 pl-5 py-5  "> Overview</h2>
+    <div id="wait" style="display:none;z-index: 4; width:69px;height:89px;position:absolute;top:50%;left:50%;padding:2px;"><img src='assets/loading.gif' width="64" height="64" /><br>Loading..</div>
+    
+    <div class=" w-75 text-center mx-auto">
+         
+          <div class="row">
+              <div class="col-sm-3 ">
+                  <div class="card-holder px-3 py-3">
+                      <div class="card-body  ">
+                          <h6 class="card-title  text-center"> Active Vehicles:</h6>
+                          <h3 id="activevehicles" class="card-text  text-center"></h3>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-3 ">
+                  <div class="card-holder px-3 py-3">
+                      <div class="card-body  ">
+                          <h6 class="card-title  text-center">
+                              Total Miles Driven:</h6>
+                          <h3 class="card-text  text-center" id="milesdriven"></h3>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-3 ">
+                  <div class="card-holder px-3 py-3">
+                      <div class="card-body  ">
+                          <h6 class="card-title  text-center"> Vehicles within Goal:</h6>
+                          <h3 class="card-text success text-center" id="withingoal"></h3>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-3 ">
+                  <div class="card-holder px-3 py-3">
+                      <div class="card-body  ">
+                          <h6 class="card-title  text-center">Vehicles below Goal:</h6>
+                          <h3 class="card-text danger text-center " id="outsidegoal"></h3>
+
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+      </div>
+    <div id="chart-container" class="text-center mb-3  mx-auto">
+    
+        <div id="doughnutDiv" class=" card chart px-3 py-3 my-3 mx-3 ">
+    
+            <canvas class="" id="doughnut-chart"></canvas>
+        </div>
+    
+        <div id="AreaDiv" class="card chartArea px-3 py-3 my-3 mx-3 text-dark">
+            <canvas class="" id="area-chart"></canvas>
+    
+        </div>
+    
+    </div>
+   
+    <table id="TopPerfTable"  data-page-length='10' class="  table-responsive{-sm|-md|-lg|-xl} table-striped w-75 mx-auto sm-marg ">
+        <thead>
+          <tr>
+              <th class=" text-center align-middle"><h2>Top Performers</h2>
+                <div class="container-fluid ">
+                    
+  
+          </tr>
+          <tr class="d-flex ">
+            <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Label</div>
+            </th>
+            <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Group</div>
+            </th>
+  
+            <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Miles Driven </div>
+            </th>
+            <th class="text-center   col-3 "><i class="far fa-chart-bar fa-3x main-color-bg"></i><div>Statistics<br><small>Company neg Impact</small></div>
+            </th>
+  
+            <th class="text-center   col-1 "><i class="fas fa-car-crash fa-3x icn main-color-bg"></i><div>Harsh turn Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-gas-pump fa-3x icn main-color-bg"></i><div>Idle Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Accel Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Deccel Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Speeding Events</div>
+            </th>
+            <th class="text-center   col-1 "><i class="fas fa-clipboard-list  fa-3x main-color-bg"></i><div>Score<br><small>% of Goal</small></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+  
+        </tbody>
+      </table>
+
+      <table id="WorstPerfTable"  data-page-length='10' class="table-responsive{-sm|-md|-lg|-xl} table-striped w-75 mx-auto sm-marg ">
+        <thead>
+          <tr>
+              <th class=" text-center align-middle"><h2>Worst Performers</h2>
+                <div class="container-fluid ">
+                    
+  
+          </tr>
+          <tr class="d-flex ">
+            <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Label</div>
+            </th>
+            <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Group</div>
+            </th>
+  
+            <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Miles Driven </div>
+            </th>
+            <th class="text-center   col-3 "><i class="far fa-chart-bar fa-3x main-color-bg"></i><div>Statistics<br><small>Company neg Impact</small></div>
+            </th>
+  
+            <th class="text-center   col-1 "><i class="fas fa-car-crash fa-3x icn main-color-bg"></i><div>Harsh turn Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-gas-pump fa-3x icn main-color-bg"></i><div>Idle Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Accel Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Deccel Events</div>
+            </th>
+            <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Speeding Events</div>
+            </th>
+            <th class="text-center   col-1 "><i class="fas fa-clipboard-list  fa-3x main-color-bg"></i><div>Score<br><small>% of Goal</small></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+  
+        </tbody>
+      </table>
+
+
+
+    </section>
+
+    <section id="GroupViewContainer" >
+        <h2 class=" ml-5 pl-5 py-5  ">Group Scorecard</h2>
+        <div class=" w-75 text-center mx-auto">
+         
+                <div class="row">
+                    <div class="col-sm-6 ">
+                        <div class="card-holder px-3 py-3">
+                            <div class="card  ">
+                                    <canvas class="" id="myChart"></canvas>
+
+      
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class="card-holder px-3 py-3">
+                            <div class="card  ">
+                                    <canvas class="" id="myChartsecond"></canvas>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class="card-holder px-3 py-3">
+                            <div class="card  ">
+                                    <canvas class="" id="myChartthird"></canvas>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class="card-holder px-3 py-3">
+                            <div class="card  ">
+
+                                    <canvas class="" id="mychartfourth"></canvas>
+
+                            </div>
+                        </div>
+                    </div>
+      
+      
+                </div>
+            </div>
+            <div class="dropdown">
+                <select id="GroupDropdown" class="btn dropdown">
+                    <option selected disabled>Choose Group</option>
+
+                  
+                  </select>
+                  
+              </div>
+     <table id="Grouptable" data-order='[[ 0, "asc" ]]' data-page-length='25' class="  table-responsive{-sm|-md|-lg|-xl} table-striped w-75 mx-auto  ">
+      <thead>
+        <tr>
+            <th class=" text-center align-middle"><h2>Group Stats Overview</h2>
+              <div class="container-fluid ">
+                  
+
+        </tr>
+        <tr class="d-flex ">
+          <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Label</div>
+          </th>
+          <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Group</div>
+          </th>
+
+          <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Miles Driven </div>
+          </th>
+          <th class="text-center   col-3 "><i class="far fa-chart-bar fa-3x main-color-bg"></i><div>Statistics<br><small>Company neg Impact</small></div>
+          </th>
+
+          <th class="text-center   col-1 "><i class="fas fa-car-crash fa-3x icn main-color-bg"></i><div>Harsh turn Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-gas-pump fa-3x icn main-color-bg"></i><div>Idle Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Accel Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Deccel Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Speeding Events</div>
+          </th>
+          <th class="text-center   col-1 "><i class="fas fa-clipboard-list  fa-3x main-color-bg"></i><div>Score<br><small>% of Goal</small></div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    </section>
+
+
+    <section id="VehicleViewContainer">
+
+    <table id="table" data-order='[[ 0, "asc" ]]' data-page-length='25' class="  table-responsive{-sm|-md|-lg|-xl} table-striped w-75 mx-auto  ">
+      <thead>
+        <tr>
+            <th class=" text-center align-middle"><h2>Fleet Stats Overview</h2>
+              <div class="container-fluid ">
+                  
+
+        </tr>
+        <tr class="d-flex ">
+          <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Label</div>
+          </th>
+          <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Vehicle Group</div>
+          </th>
+
+          <th class="col-1 text-center "><i class="fas fa-users fa-3x icn main-color-bg"></i><div>Miles Driven </div>
+          </th>
+          <th class="text-center   col-3 "><i class="far fa-chart-bar fa-3x main-color-bg"></i><div>Statistics<br><small>Company neg Impact</small></div>
+          </th>
+
+          <th class="text-center   col-1 "><i class="fas fa-car-crash fa-3x icn main-color-bg"></i><div>Harsh turn Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-gas-pump fa-3x icn main-color-bg"></i><div>Idle Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Accel Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Rapid Deccel Events</div>
+          </th>
+          <th class="text-center   col-1"><i class="fas fa-truck fa-3x icn main-color-bg"></i><div>Speeding Events</div>
+          </th>
+          <th class="text-center   col-1 "><i class="fas fa-clipboard-list  fa-3x main-color-bg"></i><div>Score<br><small>% of Goal</small></div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+   
+
+  </div>
+</section>
+  <!-- added jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+    <!-- adding in charting cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  
+    <!-- datatables script -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8"  src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+   
+    <script type="text/javascript" charset="utf8"  src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.flash.min.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+
+    <!-- custom js script -->
+    <script src="js/jquery.js"></script>
+</body>
+
+</html>
