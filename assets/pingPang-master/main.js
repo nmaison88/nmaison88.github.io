@@ -1,4 +1,5 @@
 import ScoreboardView from './scoreboard/ScoreboardView.js';
+screen.orientation.lock('landscape');
 
 let playerOneScore = 0;
 let playerTwoScore = 0;
