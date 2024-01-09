@@ -11,7 +11,7 @@
   grid-template-columns: repeat(2, 1fr);
   font-family: 'Quicksand', sans-serif;
   margin: auto;
-  width: 50%;
+  width: 100%;
   padding: 10px;
 }
 
@@ -210,4 +210,68 @@ body {
 	width: 100%;
 	padding: 4px;
   }
+}
+
+
+@media screen and (max-width: 950px) {
+	.wrapper {
+    min-height: 5vh;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    font-weight: 400;
+  }
+  .scoreboard__control-button {
+	flex-grow: 1;
+	border: none;
+	background: #eee;
+	cursor: pointer;
+	font-size: .9em;
+  }
+  .scoreboard__name--one {
+	color: black;
+	font-size: 1em;
+	font-family: verdana;
+  }
+  
+  .scoreboard__name--two {
+	color: red;
+	font-size: 1em;
+	font-family: verdana;
+  }
+  
+  .scoreboard__score {
+	font-size: 2em;
+	color: #d7cbf3;
+  }
+  .word {
+	/* display: block; */
+	font-size: 1.2em;
+	color: #003795;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+  }
+  .serve {
+	/* display: block; */
+	font-size: .2em;
+	color: rgb(68, 72, 72);
+	/* margin: auto; */
+	text-transform: uppercase;
+	text-align: center;
+	width: 100%;
+	padding: 4px;
+  }
+.button{
+  font-size: 10px;
+  min-height: 0;
+  padding: 0;
+}
+.scoreboard {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  font-family: 'Quicksand', sans-serif;
+  margin: auto;
+  width:100%;
+  min-height: 80vh;
+}
 }
