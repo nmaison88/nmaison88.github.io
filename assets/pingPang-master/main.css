@@ -213,7 +213,7 @@ body {
 }
 
 
-@media screen and (max-width: 950px) {
+/* @media screen and (max-width: 950px) {
 	.wrapper {
     min-height: 5vh;
     font-family: 'Oswald', sans-serif;
@@ -244,7 +244,6 @@ body {
 	color: #d7cbf3;
   }
   .word {
-	/* display: block; */
 	font-size: 1.2em;
 	color: #003795;
 	margin: auto;
@@ -252,10 +251,8 @@ body {
 	padding: 10px;
   }
   .serve {
-	/* display: block; */
 	font-size: .2em;
 	color: rgb(68, 72, 72);
-	/* margin: auto; */
 	text-transform: uppercase;
 	text-align: center;
 	width: 100%;
@@ -268,10 +265,9 @@ body {
 }
 .scoreboard {
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
   font-family: 'Quicksand', sans-serif;
   margin: auto;
   width:100%;
   min-height: 80vh;
 }
-}
+} */
