@@ -15,8 +15,24 @@ export default class ScoreboardView {
         <div class="bottom" aria-hidden="true">Ping Pang</div>
       </section>
       <div class="scoreboard">
-        <div class="scoreboard__name scoreboard__name--one">${playerOneName}</div>
-        <div class="scoreboard__name scoreboard__name--two">${playerTwoName}</div>
+        <div class="scoreboard__name scoreboard__name--one">${playerOneName}<select class = "narrator" name="Narrator" id="narrator1">
+        <option selected>Select Narrator</option>
+        <option value="macho">Macho</option>
+        <option value="tike">Tike</option>
+        <option value="basic">Basic</option>
+        <option value="none">None</option>
+
+      </select></div>
+        <div class="scoreboard__name scoreboard__name--two">${playerTwoName}     <select class = "narrator" name="Narrator" id="narrator2">
+        <option selected>Select Narrator</option>
+        <option value="macho">Macho</option>
+        <option value="tike">Tike</option>
+        <option value="basic">Basic</option>
+        <option value="none">None</option>
+  
+      </select></div>
+        
+ 
         <div class="scoreboard__score" data-for-player="one">0</div>
         <div class="scoreboard__score" data-for-player="two">0</div>
         <div class="scoreboard__controls" data-for-player="one">
@@ -40,6 +56,7 @@ export default class ScoreboardView {
         <div class="top">deathmatch</div>
         <div class="bottom" aria-hidden="true">deathmatch</div>
       </section>
+      
     </div>
 		`;
 

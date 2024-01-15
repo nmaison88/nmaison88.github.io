@@ -39,6 +39,17 @@
   font-size: 3em;
   font-family: verdana;
 }
+.narrator {
+  color: red;
+
+  /* color: black; */
+  display: block;
+  text-align: center;
+  margin: auto;
+  background-color: #101010;
+  font-size: .5em;
+	font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
 
 .scoreboard__score {
   font-size: 10em;
@@ -117,10 +128,10 @@
   padding: 10px;
 }
 .serve {
-  display: inline-block;
+  display: block;
   font-size: 2.2em;
   color: rgb(68, 72, 72);
-  /* margin: auto; */
+  margin: auto;
   text-transform: uppercase;
   text-align: center;
   width: 100%;
@@ -201,10 +212,10 @@ body {
 	padding: 10px;
   }
   .serve {
-	/* display: block; */
+	display: block;
 	font-size: 1.2em;
 	color: rgb(68, 72, 72);
-	/* margin: auto; */
+	margin: auto;
 	text-transform: uppercase;
 	text-align: center;
 	width: 100%;
