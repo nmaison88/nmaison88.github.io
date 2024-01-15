@@ -75,6 +75,34 @@ const view = new ScoreboardView(
       playSound(audio, player);
     }
 
+    // juans
+    if (playerOneScore === 1 && playerTwoScore === 1) {
+      playSound('juans', player);
+    }
+    // twah
+    if (playerOneScore === 2 && playerTwoScore === 2) {
+      playSound('twah', player);
+    }
+    // crazy 8's
+    if (playerOneScore === 8 && playerTwoScore === 8) {
+      playSound('crazy8s', player);
+    }
+    // nines
+    if (playerOneScore === 9 && playerTwoScore === 9) {
+      playSound('nines', player);
+    }
+    if (
+      (playerOneScore === 9 && playerTwoScore === 11) ||
+      (playerOneScore === 11 && playerTwoScore === 9)
+    ) {
+      playSound('solute', player);
+    }
+    if (
+      (playerOneScore === 19 && playerTwoScore === 11) ||
+      (playerOneScore === 11 && playerTwoScore === 19)
+    ) {
+      playSound('1911', player);
+    }
     // winning point reached
     if (playerOneScore >= 21 || playerTwoScore >= 21) {
       // winner already announced
@@ -146,6 +174,36 @@ const playSound = (sound, player = 'one') => {
 
   if (voice === 'macho') {
     switch (sound) {
+      case 'juans':
+        setTimeout(() => {
+          new Audio('juans macho.wav').play();
+        }, 1000);
+        break;
+      case 'twah':
+        setTimeout(() => {
+          new Audio('twah macho.wav').play();
+        }, 1000);
+        break;
+      case 'nines':
+        setTimeout(() => {
+          new Audio('nine macho.wav').play();
+        }, 1000);
+        break;
+      case 'crazy8s':
+        setTimeout(() => {
+          new Audio('crazy8 macho.wav').play();
+        }, 1000);
+        break;
+      case 'solute':
+        setTimeout(() => {
+          new Audio('solute macho.wav').play();
+        }, 1000);
+        break;
+      case '1911':
+        setTimeout(() => {
+          new Audio('1911 macho.wav').play();
+        }, 1000);
+        break;
       case '321':
         new Audio('321 macho.wav').play();
         break;
@@ -166,6 +224,31 @@ const playSound = (sound, player = 'one') => {
 
   if (voice === 'tike') {
     switch (sound) {
+      case 'twah':
+        setTimeout(() => {
+          new Audio('tike twah.wav').play();
+        }, 1000);
+        break;
+      case 'nines':
+        setTimeout(() => {
+          new Audio('nine tikes.wav').play();
+        }, 1000);
+        break;
+      case 'crazy8s':
+        setTimeout(() => {
+          new Audio('tike crazy 8s.wav').play();
+        }, 1000);
+        break;
+      case 'solute':
+        setTimeout(() => {
+          new Audio('tike solute.wav').play();
+        }, 1000);
+        break;
+      case '1911':
+        setTimeout(() => {
+          new Audio('tike 1911.wav').play();
+        }, 1000);
+        break;
       case '321':
         new Audio('tike 321 go.wav').play();
         break;
