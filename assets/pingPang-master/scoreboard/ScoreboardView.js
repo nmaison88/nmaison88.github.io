@@ -14,7 +14,7 @@ export default class ScoreboardView {
       <div id="bg-start" class="bg-start"><div class="starter-text">To start Game, Enter point for which player is serving first</div></div>
       <div id="bg-left" class="bg-left" hidden></div>
       <div id="bg-right" class="bg-right" hidden></div>    
-      <section class="wrapper">
+      <section class="topWrapper">
         <div class="top">Ping Pang</div>
         <div class="bottom" aria-hidden="true">Ping Pang</div>
       </section>
@@ -53,10 +53,10 @@ export default class ScoreboardView {
           <button class="reset button" hidden>Reset</button>
           </div>
         </div>
-  
+        <h3 class="word" hidden></h3>
+
       </div>
-      <h3 class="word" hidden></h3>
-      <section class="wrapper">
+      <section class="bottomWrapper">
         <div class="top">deathmatch</div>
         <div class="bottom" aria-hidden="true">deathmatch</div>
       </section>
