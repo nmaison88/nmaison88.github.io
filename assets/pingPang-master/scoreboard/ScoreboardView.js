@@ -8,8 +8,12 @@ export default class ScoreboardView {
   ) {
     this.onControlButtonClick = onControlButtonClick;
     this.root = root;
+    this.server = '';
     this.root.innerHTML = `
     <div class="container">
+      <div id="bg-start" class="bg-start"><div class="starter-text">To start Game, Enter point for which player is serving first</div></div>
+      <div id="bg-left" class="bg-left" hidden></div>
+      <div id="bg-right" class="bg-right" hidden></div>    
       <section class="wrapper">
         <div class="top">Ping Pang</div>
         <div class="bottom" aria-hidden="true">Ping Pang</div>
@@ -44,7 +48,7 @@ export default class ScoreboardView {
           <button class="scoreboard__control-button">+</button>
         </div>
         <div>
-          <div class="serve"> first serve</div>
+          <div class="serve"></div>
           <div class="scoreboard__controls">
           <button class="reset button" hidden>Reset</button>
           </div>
@@ -77,6 +81,7 @@ export default class ScoreboardView {
 
     resetButton.addEventListener('click', (event) => {
       resetFunction();
+      this.resetServe();
     });
   }
   keypressCatch(player, direction) {
@@ -91,7 +96,10 @@ export default class ScoreboardView {
       ".scoreboard__score[data-for-player='two']"
     ).textContent = playerTwoScore;
   }
-
+  resetServe() {
+    document.getElementById('bg-left').hidden = true;
+    document.getElementById('bg-right').hidden = true;
+  }
   wordflick(player) {
     let winningPlayer = player == 1 ? 'Player One' : 'Player Two';
     let LosingPlayer = player == 2 ? 'Player One' : 'Player Two';
@@ -169,15 +177,23 @@ export default class ScoreboardView {
       });
     this.root.querySelector('.reset').hidden = true;
   }
-  updateServer(position) {
-    let serve;
-
-    if (Math.abs(position % 2) == 1) {
-      serve = 'first';
-    } else {
-      serve = 'second';
+  updateServer(serve, servingPlayer) {
+    if (serve && servingPlayer) {
+      document.getElementById('bg-start').hidden = true;
+      this.root.querySelector(
+        '.serve'
+      ).textContent = ` Player ${servingPlayer} ${serve} Serve`;
+      if (servingPlayer === 'one') {
+        document.getElementById('bg-left').hidden = false;
+        document.getElementById('bg-right').hidden = true;
+      } else if (servingPlayer === 'two') {
+        document.getElementById('bg-left').hidden = true;
+        document.getElementById('bg-right').hidden = false;
+      }
+      return;
     }
-    this.root.querySelector('.serve').textContent = `${serve} serve`;
+    document.getElementById('bg-start').hidden = false;
+    this.root.querySelector('.serve').textContent = ``;
   }
   checkIfWinnerStillBoasting() {
     const visible = this.root.querySelector('.word').hidden === false;
