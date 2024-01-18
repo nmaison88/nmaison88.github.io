@@ -25,16 +25,24 @@ export default class ScoreboardView {
         <option value="tike">Tike</option>
         <option value="basic">Basic</option>
         <option value="none">None</option>
-
-      </select></div>
+      </select>
+      <select class = "narrator" name="Taunt" id="taunt1">
+        <option selected value="yes">Taunts Enabled</option>
+        <option value="no">Taunts Disabled</option>
+      </select>
+      </div>
         <div class="scoreboard__name scoreboard__name--two">${playerTwoName}     <select class = "narrator" name="Narrator" id="narrator2">
         <option>Select Narrator</option>
         <option selected value="macho">Macho</option>
         <option value="tike">Tike</option>
         <option value="basic">Basic</option>
         <option value="none">None</option>
-  
-      </select></div>
+      </select>
+      <select class = "narrator" name="Taunt" id="taunt2">
+        <option selected value="yes">Taunts Enabled</option>
+        <option value="no">Taunts Disabled</option>
+      </select>
+      </div>
         
  
         <div class="scoreboard__score" data-for-player="one">0</div>

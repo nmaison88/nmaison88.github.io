@@ -7,7 +7,7 @@ const root = document.querySelector('#app');
 let serve = null; //we start with 0 but whoever wins service, is selected as serving player
 let lastTimeKeyPressed = 0;
 document.onkeypress = function (e) {
-  //  if the button is pressed before 3 seconds of the last button press, we dont allow it to trigger
+  //  if the button is pressed before 3 seconds of the last button press, we don't allow it to trigger
   if (Date.now() - lastTimeKeyPressed <= 3000) {
     // debounce now passed
     return;
@@ -60,7 +60,8 @@ document.onkeypress = function (e) {
     view.resetServe();
     view.updateServer(serve, servingPlayer);
     view.update(playerOneScore, playerTwoScore);
-    getSound('321');
+    play_sound_queue([getSound('321')]);
+
   }
 };
 const view = new ScoreboardView(
@@ -152,6 +153,9 @@ const view = new ScoreboardView(
         ...AnnounceScore(servingPlayer, playerOneScore, playerTwoScore)
       );
     }
+    if (!special) {
+      taunt(servingPlayer, playerOneScore, playerTwoScore, player);
+    }
     // play the sounds
     play_sound_queue(audioQueue);
   },
@@ -164,7 +168,8 @@ const view = new ScoreboardView(
 
     view.updateServer(serve, servingPlayer);
     view.update(playerOneScore, playerTwoScore);
-    getSound('321');
+    play_sound_queue([getSound('321')]);
+
   }
 );
 
@@ -178,177 +183,222 @@ const getSound = (sound, player = 'one') => {
   if (voice === 'global') {
     switch (sound) {
       case 'ding':
-        return new Audio('ding.wav');
+        return new Audio('sounds/global/ding.wav');
+
+      case 'wah wah':
+        return new Audio('sounds/global/wah wah wah.mp3');
     }
   }
 
   if (voice === 'basic') {
     switch (sound) {
       case '321':
-        return new Audio('321.wav');
+        return new Audio('sounds/basic/321.wav');
       case 'player1':
-        return new Audio('player1.wav');
+        return new Audio('sounds/basic/player1.wav');
 
       case 'player2':
-        return new Audio('player2.wav');
+        return new Audio('sounds/basic/player2.wav');
 
       case 'game over':
-        return new Audio('game over.wav');
+        return new Audio('sounds/basic/game over.wav');
 
       case 'sudden death':
-        return new Audio('sudden death.wav');
+        return new Audio('sounds/basic/sudden death.wav');
     }
   }
 
   if (voice === 'macho') {
     switch (sound) {
       case 'juans':
-        return new Audio('juans macho.wav');
+        return new Audio('sounds/macho/juans macho.wav');
 
       case 'twah':
-        return new Audio('twah macho.wav');
+        return new Audio('sounds/macho/twah macho.wav');
 
       case 'five0':
-        return new Audio('5 0 macho.wav');
+        return new Audio('sounds/macho/5 0 macho.wav');
 
       case 'nines':
-        return new Audio('nine macho.wav');
+        return new Audio('sounds/macho/nine macho.wav');
 
       case 'crazy8s':
-        return new Audio('crazy8 macho.wav');
+        return new Audio('sounds/macho/crazy8 macho.wav');
 
       case 'solute':
-        return new Audio('solute macho.wav');
+        return new Audio('sounds/macho/solute macho.wav');
 
       case '1911':
-        return new Audio('1911 macho.wav');
+        return new Audio('sounds/macho/1911 macho.wav');
 
       case '321':
-        return new Audio('321 macho.wav');
+        return new Audio('sounds/macho/321 macho.wav');
 
       case 'player1':
-        return new Audio('macho player one.wav');
+        return new Audio('sounds/macho/macho player one.wav');
 
       case 'player2':
-        return new Audio('macho player 2.wav');
+        return new Audio('sounds/macho/macho player 2.wav');
 
       case 'game over':
-        return new Audio('macho game over.wav');
+        return new Audio('sounds/macho/macho game over.wav');
 
       case 'sudden death':
-        return new Audio('macho sudden death.wav');
+        return new Audio('sounds/macho/macho sudden death.wav');
+      case 'mistakes':
+        return new Audio('sounds/macho/macho mistakes.wav');
+      case 'what we signed up for':
+        return new Audio('sounds/macho/macho not what we signed up for.wav');
+      case 'superb':
+        return new Audio('sounds/macho/macho superb.wav');
+      case 'serious':
+        return new Audio('sounds/macho/macho serious.wav');
+      case 'coming home':
+        return new Audio('sounds/macho/macho coming home.wav');
+      case 'whoa':
+        return new Audio('sounds/macho/macho whoa.wav');
+      case 'solid':
+        return new Audio('sounds/macho/macho solid.wav');
+      case 'disappointing':
+        return new Audio('sounds/macho/macho disappointing.wav');
+      case 'how you do it':
+        return new Audio('sounds/macho/macho how you do it.wav');
+      case 'better luck':
+        return new Audio('sounds/macho/macho better luck.wav');
 
+      case 'encouragement':
+        return new Audio('sounds/macho/macho encouragement.wav');
+      case 'game point':
+        return new Audio('sounds/macho/macho game point.wav');
+      case 'hands':
+        return new Audio('sounds/macho/macho hands.wav');
+      case 'no contest':
+        return new Audio('sounds/macho/macho no contest.wav');
+      case 'no no no':
+        return new Audio('sounds/macho/macho no no no.wav');
+      case 'no pressure':
+        return new Audio('sounds/macho/macho no pressure.wav');
+      case 'goat':
+        return new Audio('sounds/macho/macho goat.wav');
+      case 'almost there':
+        return new Audio('sounds/macho/macho almost there.wav');
+      case 'end it':
+        return new Audio('sounds/macho/macho end it.wav');
+      case 'misery':
+        return new Audio('sounds/macho/macho misery.wav');
+      case 'rabbits':
+        return new Audio('sounds/macho/macho rabbits.wav');
       case 'vs':
-        return new Audio('macho vs.wav');
+        return new Audio('sounds/macho/macho vs.wav');
 
       case '0':
-        return new Audio('macho 0.wav');
+        return new Audio('sounds/macho/macho 0.wav');
 
       case '1':
-        return new Audio('macho 1.wav');
+        return new Audio('sounds/macho/macho 1.wav');
 
       case '2':
-        return new Audio('macho 2.wav');
+        return new Audio('sounds/macho/macho 2.wav');
 
       case '3':
-        return new Audio('macho 3.wav');
+        return new Audio('sounds/macho/macho 3.wav');
 
       case '4':
-        return new Audio('macho 4.wav');
+        return new Audio('sounds/macho/macho 4.wav');
 
       case '5':
-        return new Audio('macho 5.wav');
+        return new Audio('sounds/macho/macho 5.wav');
 
       case '6':
-        return new Audio('macho 6.wav');
+        return new Audio('sounds/macho/macho 6.wav');
 
       case '7':
-        return new Audio('macho 7.wav');
+        return new Audio('sounds/macho/macho 7.wav');
 
       case '8':
-        return new Audio('macho 8.wav');
+        return new Audio('sounds/macho/macho 8.wav');
 
       case '9':
-        return new Audio('macho 9.wav');
+        return new Audio('sounds/macho/macho 9.wav');
 
       case '10':
-        return new Audio('macho 10.wav');
+        return new Audio('sounds/macho/macho 10.wav');
 
       case '11':
-        return new Audio('macho 11.wav');
+        return new Audio('sounds/macho/macho 11.wav');
 
       case '12':
-        return new Audio('macho 12.wav');
+        return new Audio('sounds/macho/macho 12.wav');
 
       case '13':
-        return new Audio('macho 13.wav');
+        return new Audio('sounds/macho/macho 13.wav');
 
       case '14':
-        return new Audio('macho 14.wav');
+        return new Audio('sounds/macho/macho 14.wav');
 
       case '15':
-        return new Audio('macho 15.wav');
+        return new Audio('sounds/macho/macho 15.wav');
 
       case '16':
-        return new Audio('macho 16.wav');
+        return new Audio('sounds/macho/macho 16.wav');
 
       case '17':
-        return new Audio('macho 17.wav');
+        return new Audio('sounds/macho/macho 17.wav');
 
       case '18':
-        return new Audio('macho 18.wav');
+        return new Audio('sounds/macho/macho 18.wav');
 
       case '19':
-        return new Audio('macho 19.wav');
+        return new Audio('sounds/macho/macho 19.wav');
 
       case '20':
-        return new Audio('macho 20.wav');
+        return new Audio('sounds/macho/macho 20.wav');
 
       case '21':
-        return new Audio('macho 21.wav');
+        return new Audio('sounds/macho/macho 21.wav');
 
       case '22':
-        return new Audio('macho 22.wav');
+        return new Audio('sounds/macho/macho 22.wav');
 
       case 'serving':
-        return new Audio('macho serving.wav');
+        return new Audio('sounds/macho/macho serving.wav');
     }
   }
 
   if (voice === 'tike') {
     switch (sound) {
       case 'twah':
-        return new Audio('tike twah.wav');
+        return new Audio('sounds/tike/tike twah.wav');
 
       case 'five0':
-        return new Audio('tike 5 0.wav');
+        return new Audio('sounds/tike/tike 5 0.wav');
 
       case 'nines':
-        return new Audio('nine tikes.wav');
+        return new Audio('sounds/tike/nine tikes.wav');
 
       case 'crazy8s':
-        return new Audio('tike crazy 8s.wav');
+        return new Audio('sounds/tike/tike crazy 8s.wav');
 
       case 'solute':
-        return new Audio('tike solute.wav');
+        return new Audio('sounds/tike/tike solute.wav');
 
       case '1911':
-        return new Audio('tike 1911.wav');
+        return new Audio('sounds/tike/tike 1911.wav');
 
       case '321':
-        return new Audio('tike 321 go.wav');
+        return new Audio('sounds/tike/tike 321 go.wav');
 
       case 'player1':
-        return new Audio('tike player 1.wav');
+        return new Audio('sounds/tike/tike player 1.wav');
 
       case 'player2':
-        return new Audio('tike player 2.wav');
+        return new Audio('sounds/tike/tike player 2.wav');
 
       case 'game over':
-        return new Audio('tike game over.wav');
+        return new Audio('sounds/tike/tike game over.wav');
 
       case 'sudden death':
-        return new Audio('tike sudden death.wav');
+        return new Audio('sounds/tike/tike sudden death.wav');
     }
   }
 };
@@ -364,10 +414,10 @@ const AnnounceScore = (
       servingPlayer === 'one'
         ? getSound('player1', servingPlayer)
         : getSound('player2', servingPlayer);
-    const otherPlayer = getSound(
-      servingPlayer === 'one' ? 'player2' : 'player1',
-      servingPlayer
-    );
+    // const otherPlayer = getSound(
+    //   servingPlayer === 'one' ? 'player2' : 'player1',
+    //   servingPlayer
+    // );
     return [player, getSound('serving', servingPlayer)];
   }
   // play whose sering score first
@@ -436,6 +486,71 @@ const callSpecial = (servingPlayer, playerOneScore, playerTwoScore, player) => {
   }
 };
 
+const taunt = (servingPlayer, playerOneScore, playerTwoScore, player) => {
+  if (playerOneScore === 20 || playerTwoScore === 20) {
+    audioQueue.push( getSound('game point', player));
+    return;
+  }
+  // if servingPlayer 1 scored point, we can taunt
+  if (servingPlayer === player) {
+    // greater than three points
+    const servingPlayerScore =
+      player === 'one' ? playerOneScore : playerTwoScore;
+    const opponentScore = player === 'one' ? playerTwoScore : playerOneScore;
+    if (servingPlayerScore - opponentScore >= 3) {
+      const tauntArray = [
+        getSound('superb', player),
+        getSound('whoa', player),
+        getSound('solid', player),
+        getSound('how you do it', player),
+        getSound('better luck', player),
+        getSound('hands', player),
+        getSound('no contest', player),
+        getSound('goat', player),
+      ];
+      const randomSOund = tauntArray[(tauntArray.length * Math.random()) | 0];
+      audioQueue.push(randomSOund);
+    }
+  } //if server lost a point, we can add reactions
+  else if (servingPlayer !== player) {
+    const servingPlayerScore =
+      servingPlayer === 'one' ? playerOneScore : playerTwoScore;
+    const opponentScore =
+      servingPlayer === 'one' ? playerTwoScore : playerOneScore;
+
+    if (
+      opponentScore - servingPlayerScore >= 3 &&
+      opponentScore - servingPlayerScore < 10
+    ) {
+      const reactionArray = [
+        getSound('mistakes', player),
+        getSound('disappointing', player),
+        getSound('wah wah', 'global'),
+        getSound('what we signed up for', player),
+        getSound('serious', player),
+        getSound('coming home', player),
+        getSound('encouragement', player),
+        getSound('no no no', player),
+        getSound('no pressure', player),
+      ];
+      const randomSOund =
+        reactionArray[(reactionArray.length * Math.random()) | 0];
+      audioQueue.push(randomSOund);
+    } else if (opponentScore - servingPlayerScore >= 10) {
+      const reactionArray = [
+        getSound('end it', player),
+        getSound('misery', player),
+        getSound('wah wah', 'global'),
+        getSound('rabbits', player),
+        getSound('serious', player),
+        getSound('almost there', player),
+      ];
+      const randomSOund =
+        reactionArray[(reactionArray.length * Math.random()) | 0];
+      audioQueue.push(randomSOund);
+    }
+  }
+};
 function play_sound_queue(sounds) {
   let index = 0;
   function recursive_play() {
@@ -457,7 +572,11 @@ function play_sound_queue(sounds) {
 }
 
 function play(audio, callback) {
-  audio.play();
+  try {
+    audio.play();
+  } catch (error) {
+    console.log(error);
+  }
   if (callback) {
     //When the audio object completes it's playback, call the callback
     //provided
