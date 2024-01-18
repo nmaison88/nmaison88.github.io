@@ -5,7 +5,15 @@ let servingPlayer = null;
 let audioQueue = [];
 const root = document.querySelector('#app');
 let serve = null; //we start with 0 but whoever wins service, is selected as serving player
+let lastTimeKeyPressed = 0;
 document.onkeypress = function (e) {
+  //  if the button is pressed before 3 seconds of the last button press, we dont allow it to trigger
+  if (Date.now() - lastTimeKeyPressed <= 3000) {
+    // debounce now passed
+    return;
+  }
+  // reset debounce
+  lastTimeKeyPressed = Date.now();
   e = e || window.event;
   // any key restarts
   if (playerOneScore >= 21 || playerTwoScore >= 21) {
