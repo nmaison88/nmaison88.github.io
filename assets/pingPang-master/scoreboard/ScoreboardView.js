@@ -20,16 +20,16 @@ export default class ScoreboardView {
       </section>
       <div class="scoreboard">
         <div class="scoreboard__name scoreboard__name--one">${playerOneName}<select class = "narrator" name="Narrator" id="narrator1">
-        <option selected>Select Narrator</option>
-        <option value="macho">Macho</option>
+        <option>Select Narrator</option>
+        <option selected value="macho">Macho</option>
         <option value="tike">Tike</option>
         <option value="basic">Basic</option>
         <option value="none">None</option>
 
       </select></div>
         <div class="scoreboard__name scoreboard__name--two">${playerTwoName}     <select class = "narrator" name="Narrator" id="narrator2">
-        <option selected>Select Narrator</option>
-        <option value="macho">Macho</option>
+        <option>Select Narrator</option>
+        <option selected value="macho">Macho</option>
         <option value="tike">Tike</option>
         <option value="basic">Basic</option>
         <option value="none">None</option>
