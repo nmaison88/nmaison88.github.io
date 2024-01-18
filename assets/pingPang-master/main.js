@@ -360,7 +360,7 @@ const AnnounceScore = (
       servingPlayer === 'one' ? 'player2' : 'player1',
       servingPlayer
     );
-    return [player, getSound('serving', servingPlayer), otherPlayer];
+    return [player, getSound('serving', servingPlayer)];
   }
   // play whose sering score first
   const player =
