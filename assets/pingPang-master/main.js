@@ -582,6 +582,162 @@ const getSound = (sound, player = 'one') => {
         return new Audio('sounds/irish/irish serving.wav');
     }
   }
+  if (voice === 'kenna') {
+    switch (sound) {
+      case 'juans':
+        return new Audio('sounds/kenna oo nana/kenna oo nana juans.wav');
+
+      case 'twah':
+        return new Audio('sounds/kenna oo nana/kenna oo nana twah.wav');
+
+      case 'five0':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 5 0.wav');
+
+      case 'nines':
+        return new Audio('sounds/kenna oo nana/kenna oo nana nines.wav');
+
+      case 'crazy8s':
+        return new Audio('sounds/kenna oo nana/kenna oo nana crazy 8s.wav');
+
+      case 'solute':
+        return new Audio('sounds/kenna oo nana/kenna oo nana solute.wav');
+
+      case '1911':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 1911.wav');
+
+      case '321':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 321.wav');
+
+      case 'player1':
+        return new Audio('sounds/kenna oo nana/kenna oo nana player one.wav');
+
+      case 'player2':
+        return new Audio('sounds/kenna oo nana/kenna oo nana player 2.wav');
+
+      case 'game over':
+        return new Audio('sounds/kenna oo nana/kenna oo nana game over.wav');
+
+      case 'sudden death':
+        return new Audio('sounds/kenna oo nana/kenna oo nana sudden death.wav');
+      case 'mistakes':
+        return new Audio('sounds/kenna oo nana/kenna oo nana mistakes.wav');
+      case 'what we signed up for':
+        return new Audio('sounds/kenna oo nana/kenna oo nana not what we signed up for.wav');
+      case 'superb':
+        return new Audio('sounds/kenna oo nana/kenna oo nana superb.wav');
+      case 'serious':
+        return new Audio('sounds/kenna oo nana/kenna oo nana serious.wav');
+      case 'coming home':
+        return new Audio('sounds/kenna oo nana/kenna oo nana coming home.wav');
+      case 'whoa':
+        return new Audio('sounds/kenna oo nana/kenna oo nana whoa.wav');
+      case 'solid':
+        return new Audio('sounds/kenna oo nana/kenna oo nana solid.wav');
+      case 'disappointing':
+        return new Audio('sounds/kenna oo nana/kenna oo nana disappointing.wav');
+      case 'how you do it':
+        return new Audio('sounds/kenna oo nana/kenna oo nana how you do it.wav');
+      case 'better luck':
+        return new Audio('sounds/kenna oo nana/kenna oo nana better luck.wav');
+
+      case 'encouragement':
+        return new Audio('sounds/kenna oo nana/kenna oo nana encouragement.wav');
+      case 'game point':
+        return new Audio('sounds/kenna oo nana/kenna oo nana game point.wav');
+      case 'hands':
+        return new Audio('sounds/kenna oo nana/kenna oo nana hands.wav');
+      case 'no contest':
+        return new Audio('sounds/kenna oo nana/kenna oo nana no contest.wav');
+      case 'no no no':
+        return new Audio('sounds/kenna oo nana/kenna oo nana no no no.wav');
+      case 'no pressure':
+        return new Audio('sounds/kenna oo nana/kenna oo nana no pressure.wav');
+      case 'goat':
+        return new Audio('sounds/kenna oo nana/kenna oo nana goat.wav');
+      case 'almost there':
+        return new Audio('sounds/kenna oo nana/kenna oo nana almost there.wav');
+      case 'end it':
+        return new Audio('sounds/kenna oo nana/kenna oo nana end it.wav');
+      case 'misery':
+        return new Audio('sounds/kenna oo nana/kenna oo nana misery.wav');
+      case 'rabbits':
+        return new Audio('sounds/kenna oo nana/kenna oo nana rabbits.wav');
+      case 'vs':
+        return new Audio('sounds/kenna oo nana/kenna oo nana vs.wav');
+
+      case '0':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 0.wav');
+
+      case '1':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 1.wav');
+
+      case '2':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 2.wav');
+
+      case '3':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 3.wav');
+
+      case '4':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 4.wav');
+
+      case '5':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 5.wav');
+
+      case '6':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 6.wav');
+
+      case '7':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 7.wav');
+
+      case '8':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 8.wav');
+
+      case '9':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 9.wav');
+
+      case '10':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 10.wav');
+
+      case '11':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 11.wav');
+
+      case '12':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 12.wav');
+
+      case '13':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 13.wav');
+
+      case '14':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 14.wav');
+
+      case '15':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 15.wav');
+
+      case '16':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 16.wav');
+
+      case '17':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 17.wav');
+
+      case '18':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 18.wav');
+
+      case '19':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 19.wav');
+
+      case '20':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 20.wav');
+
+      case '21':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 21.wav');
+
+      case '22':
+        return new Audio('sounds/kenna oo nana/kenna oo nana 22.wav');
+
+      case 'serving':
+        return new Audio('sounds/kenna oo nana/kenna oo nana serving.wav');
+    }
+  }
 };
 
 const AnnounceScore = (

@@ -31,6 +31,7 @@ export default class ScoreboardView {
         <option selected value="macho">Butch</option>
         <option value="tike">Tike</option>
         <option value="irish">Scotty</option>
+        <option value="kenna">Kenna oo nana</option>
         <option value="none">None</option>
         </select></li>
         <li><div>Narrator player 2:</div><select class="narrator" style="text-align:center" name="Narrator" id="narrator2">
@@ -38,6 +39,7 @@ export default class ScoreboardView {
         <option value="macho">Butch</option>
         <option value="tike">Tike</option>
         <option selected value="irish">Scotty</option>
+        <option value="kenna">Kenna oo nana</option>
         <option value="none">None</option>
       </select></li>
 
@@ -503,6 +505,9 @@ export default class ScoreboardView {
       case 'tike':
         new Audio('sounds/tike/tike ping pang deathmatch.wav').play();
         break;
+        case 'kenna':
+          new Audio('sounds/kenna oo nana/kenna oo nana ping pang deathmatch.wav').play();
+          break;
       default:
         break;
     }
