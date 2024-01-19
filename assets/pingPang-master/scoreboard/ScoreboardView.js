@@ -26,18 +26,18 @@ export default class ScoreboardView {
        <li><input type="checkbox" id="bgMusic" name="bgMusic" class="bgMusic">
        <label for="bgMusic"> Background Music</label><br>
        </li>
-       <li><div>Narrator player 1:</div><select style="text-align:center" name="Narrator" id="narrator1">
+       <li><div>Narrator player 1:</div><select class="narrator" style="text-align:center" name="Narrator" id="narrator1">
         <option>Select Narrator</option>
-        <option selected value="macho">Macho</option>
+        <option selected value="macho">Butch</option>
         <option value="tike">Tike</option>
-        <option value="basic">Basic</option>
+        <option value="irish">Scotty</option>
         <option value="none">None</option>
         </select></li>
-        <li><div>Narrator player 2:</div><select style="text-align:center" name="Narrator" id="narrator2">
+        <li><div>Narrator player 2:</div><select class="narrator" style="text-align:center" name="Narrator" id="narrator2">
         <option>Select Narrator</option>
-        <option selected value="macho">Macho</option>
+        <option selected value="macho">Butch</option>
         <option value="tike">Tike</option>
-        <option value="basic">Basic</option>
+        <option value="irish">Scotty</option>
         <option value="none">None</option>
       </select></li>
 
@@ -340,18 +340,19 @@ export default class ScoreboardView {
 
     const resetButton = this.root.querySelector('.reset');
     const closeNavButton = this.root.querySelector('.closebtn');
-    // const openNavButton = this.root.querySelector('.openbtn');
+    const narratorSelect = this.root.querySelectorAll('.narrator');
     const musicPlayerCheck = this.root.querySelector('.bgMusic');
 
+    for (let i = 0; i < narratorSelect.length; i++) {
+      narratorSelect[i].addEventListener('change', (event) => {
+        this.narratorSelectSoundOff(event.target.value);
+      });
+    }
     resetButton.addEventListener('click', (event) => {
       resetFunction();
       this.resetServe();
     });
-    // openNavButton.addEventListener('click', (event) => {
-    //   this.menuOpen = true;
 
-    //   this.openNav();
-    // });
     closeNavButton.addEventListener('click', (event) => {
       // menu is already visible, now we hide it
       if (this.menuOpen) {
@@ -362,9 +363,7 @@ export default class ScoreboardView {
         this.menuOpen = true;
         document.getElementById('closebtn').classList.toggle('change');
         this.openNav();
-
       }
-
     });
     musicPlayerCheck.addEventListener('click', (event) => {
       musicplayer();
@@ -491,5 +490,21 @@ export default class ScoreboardView {
 
   closeNav() {
     document.getElementById('mySidebar').style.width = '0';
+  }
+  narratorSelectSoundOff(narrator) {
+    console.log('narrator', narrator);
+    switch (narrator) {
+      case 'irish':
+        new Audio('sounds/irish/irish ping pang deathmatch.wav').play();
+        break;
+      case 'macho':
+        new Audio('sounds/macho/macho ping pang deathmatch.wav').play();
+        break;
+      case 'tike':
+        new Audio('sounds/tike/tike ping pang deathmatch.wav').play();
+        break;
+      default:
+        break;
+    }
   }
 }
