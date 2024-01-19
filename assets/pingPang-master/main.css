@@ -2,6 +2,90 @@
   --background-color: black;
   --text-color: hsl(0, 0%, 100%);
 }
+.menuIconContainer {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 140;
+  position: absolute;
+  top: 1vh;
+  left: 1vw;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #8d8888;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+.svgContainer {
+  text-align: center;
+  margin: auto;
+  padding-top: 20vh;
+  padding-right: 30vw;
+  height: 100vh;
+  width: 20vw;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar li {
+  plidding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  /* right: 25px; */
+  font-size: 36px;
+  /* margin-left: 50px; */
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
 .container {
   width: 100vw;
   height: 100vh;
@@ -46,8 +130,9 @@
   text-align: center;
   margin: auto;
   background-color: #101010;
-  font-size: .5em;
-	font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 0.5em;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .scoreboard__score {
@@ -66,51 +151,52 @@
   cursor: pointer;
   font-size: 3.2em;
 }
-  
-  /* CSS */
-  .button {
-	appearance: none;
-	background-color: transparent;
-	border: 2px solid #1A1A1A;
-	border-radius: 15px;
-	box-sizing: border-box;
-	color: #3B3B3B;
-	cursor: pointer;
-	display: inline-block;
-	font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-	font-size: 16px;
-	font-weight: 600;
-	line-height: normal;
-	margin: 0;
-	min-height: 60px;
-	min-width: 0;
-	outline: none;
-	padding: 16px 24px;
-	text-align: center;
-	text-decoration: none;
-	transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
-	width: 100%;
-	will-change: transform;
-  }
-  
-  .button:disabled {
-	pointer-events: none;
-  }
-  
-  .button:hover {
-	color: #fff;
-	background-color: #1A1A1A;
-	box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-	transform: translateY(-2px);
-  }
-  
-  .button:active {
-	box-shadow: none;
-	transform: translateY(0);
-  }
+
+/* CSS */
+.button {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
 .scoreboard__control-button:hover {
   background: #ddd;
 }
@@ -126,16 +212,16 @@
   width: 50%;
   padding: 10px;
 }
-.bg-start{
-  background: #0b0b0bf2; 
+.bg-start {
+  background: #0b0b0bf2;
   left: 0;
   top: 0;
   bottom: 0;
   position: absolute;
   width: 100%;
-  pointer-events:none
+  pointer-events: none;
 }
-.starter-text{
+.starter-text {
   text-transform: uppercase;
   text-align: center;
   margin: auto;
@@ -143,29 +229,29 @@
   color: white;
   padding: 20vh;
 
-/* justify-content: center; */
+  /* justify-content: center; */
 }
 .bg-left {
   /* background: #02c0e698;  */
-  background: #078d0298; 
+  /* background: #078d0298; */
 
   left: 0;
   top: 0;
   bottom: 0;
   position: absolute;
   width: 50%;
-  pointer-events:none
+  pointer-events: none;
 }
 .bg-right {
   right: 0;
   top: 0;
   bottom: 0;
   /* background: #078d0298;  */
-  background: #02c0e698; 
+  /* background: #02c0e698; */
 
   position: absolute;
   width: 50%;
-  pointer-events:none
+  pointer-events: none;
 }
 .serve {
   display: block;
@@ -229,13 +315,12 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-	.topWrapper {
+  .topWrapper {
     height: 10vh;
     font-family: 'Oswald', sans-serif;
     font-size: 4em;
     font-weight: 400;
     width: 100vw;
-
   }
   .bottomWrapper {
     height: 10vh;
@@ -246,7 +331,7 @@ body {
     /* position: absolute; */
     /* bottom: 10px; */
   }
-  
+
   .scoreboard {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -254,57 +339,57 @@ body {
     /* margin: auto; */
     height: 80vh;
   }
-  
+
   .scoreboard__control-button {
-	flex-grow: 1;
-	border: none;
-	background: #eee;
-	cursor: pointer;
-	font-size: 2.2em;
+    flex-grow: 1;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    font-size: 2.2em;
   }
   .scoreboard__name--one {
-	color: black;
-	font-size: 1em;
-	font-family: verdana;
+    color: black;
+    font-size: 1em;
+    font-family: verdana;
   }
-  
+
   .scoreboard__name--two {
-	color: red;
-	font-size: 1em;
-	font-family: verdana;
+    color: red;
+    font-size: 1em;
+    font-family: verdana;
   }
-  
+
   .scoreboard__score {
-	font-size: 5em;
-	color: #d7cbf3;
+    font-size: 5em;
+    color: #d7cbf3;
   }
   .word {
-	/* display: block; */
-	font-size: 2.2em;
-	color: #aac6f7;
-	margin: auto;
-	width: 50%;
-	padding: 10px;
+    /* display: block; */
+    font-size: 2.2em;
+    color: #aac6f7;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
   }
   .serve {
-	display: block;
-	font-size: 1.2em;
-	color: rgb(68, 72, 72);
-	margin: auto;
-	text-transform: uppercase;
-	text-align: center;
-	width: 100%;
+    display: block;
+    font-size: 1.2em;
+    color: rgb(68, 72, 72);
+    margin: auto;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
   }
-  .bg-start{
-    background: #0b0b0bf2; 
+  .bg-start {
+    background: #0b0b0bf2;
     left: 0;
     top: 0;
     bottom: 0;
     position: absolute;
     width: 100%;
-    pointer-events:none
+    pointer-events: none;
   }
-  .starter-text{
+  .starter-text {
     text-transform: uppercase;
     text-align: center;
     /* margin: auto; */
@@ -312,20 +397,16 @@ body {
     color: white;
     /* padding: 20vh; */
     padding: 40vh 0;
-
-  
   }
-  
 }
 
 @media screen and (max-width: 500px) {
-	.topWrapper {
+  .topWrapper {
     min-height: 8vh;
     font-family: 'Oswald', sans-serif;
     font-size: 4em;
     font-weight: 400;
     width: 100vw;
-
   }
   .bottomWrapper {
     min-height: 8vh;
@@ -336,65 +417,65 @@ body {
     position: fixed;
     bottom: 10px;
   }
-  
+
   .scoreboard {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-family: 'Quicksand', sans-serif;
     margin: auto;
   }
-  
+
   .scoreboard__control-button {
-	flex-grow: 1;
-	border: none;
-	background: #eee;
-	cursor: pointer;
-	font-size: 2.2em;
+    flex-grow: 1;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    font-size: 2.2em;
   }
   .scoreboard__name--one {
-	color: black;
-	font-size: 1em;
-	font-family: verdana;
+    color: black;
+    font-size: 1em;
+    font-family: verdana;
   }
-  
+
   .scoreboard__name--two {
-	color: red;
-	font-size: 1em;
-	font-family: verdana;
+    color: red;
+    font-size: 1em;
+    font-family: verdana;
   }
-  
+
   .scoreboard__score {
-	font-size: 5em;
-	color: #d7cbf3;
+    font-size: 5em;
+    color: #d7cbf3;
   }
   .word {
-	/* display: block; */
-	font-size: 2.2em;
-	color: #aac6f7;
-	margin: auto;
-	width: 50%;
-	padding: 10px;
+    /* display: block; */
+    font-size: 2.2em;
+    color: #aac6f7;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
   }
   .serve {
-	display: block;
-	font-size: 1.2em;
-	color: rgb(68, 72, 72);
-	margin: auto;
-	text-transform: uppercase;
-	text-align: center;
-	width: 100%;
-	padding: 4px;
+    display: block;
+    font-size: 1.2em;
+    color: rgb(68, 72, 72);
+    margin: auto;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    padding: 4px;
   }
-  .bg-start{
-    background: #0b0b0bf2; 
+  .bg-start {
+    background: #0b0b0bf2;
     left: 0;
     top: 0;
     bottom: 0;
     position: absolute;
     width: 100%;
-    pointer-events:none
+    pointer-events: none;
   }
-  .starter-text{
+  .starter-text {
     text-transform: uppercase;
     text-align: center;
     justify-content: space-evenly;
@@ -403,7 +484,5 @@ body {
     color: white;
     padding: 40vh 0;
     /* padding: 20vh; */
-  
   }
-  
 }

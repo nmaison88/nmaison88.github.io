@@ -6,6 +6,18 @@ let audioQueue = [];
 const root = document.querySelector('#app');
 let serve = null; //we start with 0 but whoever wins service, is selected as serving player
 let lastTimeKeyPressed = 0;
+let audio = new Audio();
+let  i = 0;
+const playlist = new Array('sounds/music/bg music.mp3', 'sounds/music/bg music2.mp3','sounds/music/bg music3.mp3','sounds/music/bg music4.mp3' );
+
+
+audio.addEventListener('ended', function () {
+    i = ++i < playlist.length ? i : 0;
+    console.log(i)
+    audio.src = playlist[i];
+    audio.play();
+}, true);
+
 document.onkeypress = function (e) {
   //  if the button is pressed before 3 seconds of the last button press, we don't allow it to trigger
   if (Date.now() - lastTimeKeyPressed <= 3000) {
@@ -61,7 +73,6 @@ document.onkeypress = function (e) {
     view.updateServer(serve, servingPlayer);
     view.update(playerOneScore, playerTwoScore);
     play_sound_queue([getSound('321')]);
-
   }
 };
 const view = new ScoreboardView(
@@ -153,7 +164,8 @@ const view = new ScoreboardView(
         ...AnnounceScore(servingPlayer, playerOneScore, playerTwoScore)
       );
     }
-    if (!special) {
+    const tauntEnabled = document.getElementById('taunt').checked;
+    if (!special && tauntEnabled) {
       taunt(servingPlayer, playerOneScore, playerTwoScore, player);
     }
     // play the sounds
@@ -169,8 +181,21 @@ const view = new ScoreboardView(
     view.updateServer(serve, servingPlayer);
     view.update(playerOneScore, playerTwoScore);
     play_sound_queue([getSound('321')]);
-
+  },()=>{  
+    const playmusic = document.getElementById('bgMusic').checked;
+    if(!playmusic){
+      audio.load()
+      return;
+    }
+  if (playmusic) {
+    audio.volume = 0.3;
+    audio.loop = false;
+    audio.src = playlist[0];
+    audio.play();
   }
+
+}
+
 );
 
 const getSound = (sound, player = 'one') => {
@@ -488,7 +513,7 @@ const callSpecial = (servingPlayer, playerOneScore, playerTwoScore, player) => {
 
 const taunt = (servingPlayer, playerOneScore, playerTwoScore, player) => {
   if (playerOneScore === 20 || playerTwoScore === 20) {
-    audioQueue.push( getSound('game point', player));
+    audioQueue.push(getSound('game point', player));
     return;
   }
   // if servingPlayer 1 scored point, we can taunt
