@@ -35,9 +35,9 @@ export default class ScoreboardView {
         </select></li>
         <li><div>Narrator player 2:</div><select class="narrator" style="text-align:center" name="Narrator" id="narrator2">
         <option>Select Narrator</option>
-        <option selected value="macho">Butch</option>
+        <option value="macho">Butch</option>
         <option value="tike">Tike</option>
-        <option value="irish">Scotty</option>
+        <option selected value="irish">Scotty</option>
         <option value="none">None</option>
       </select></li>
 
@@ -485,7 +485,7 @@ export default class ScoreboardView {
     return visible;
   }
   openNav() {
-    document.getElementById('mySidebar').style.width = '20vw';
+    document.getElementById('mySidebar').style.width = 'auto';
   }
 
   closeNav() {

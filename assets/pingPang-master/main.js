@@ -450,7 +450,7 @@ const getSound = (sound, player = 'one') => {
         return new Audio('sounds/irish/irish 1911.wav');
 
       case '321':
-        return new Audio('sounds/irish/321 irish.wav');
+        return new Audio('sounds/irish/irish 321.wav');
 
       case 'player1':
         return new Audio('sounds/irish/irish player one.wav');
