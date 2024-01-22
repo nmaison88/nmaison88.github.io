@@ -7,16 +7,25 @@ const root = document.querySelector('#app');
 let serve = null; //we start with 0 but whoever wins service, is selected as serving player
 let lastTimeKeyPressed = 0;
 let audio = new Audio();
-let  i = 0;
-const playlist = new Array('sounds/music/bg music.mp3', 'sounds/music/bg music2.mp3','sounds/music/bg music3.mp3','sounds/music/bg music4.mp3' );
+let i = 0;
+let gameOver = false;
+const playlist = new Array(
+  'sounds/music/bg music.mp3',
+  'sounds/music/bg music2.mp3',
+  'sounds/music/bg music3.mp3',
+  'sounds/music/bg music4.mp3'
+);
 
-
-audio.addEventListener('ended', function () {
+audio.addEventListener(
+  'ended',
+  function () {
     i = ++i < playlist.length ? i : 0;
-    console.log(i)
+    console.log(i);
     audio.src = playlist[i];
     audio.play();
-}, true);
+  },
+  true
+);
 
 document.onkeypress = function (e) {
   //  if the button is pressed before 3 seconds of the last button press, we don't allow it to trigger
@@ -31,6 +40,7 @@ document.onkeypress = function (e) {
   if (playerOneScore >= 21 || playerTwoScore >= 21) {
     if (view.checkIfWinnerStillBoasting() === true) {
       view.resetWinner();
+      gameOver = false;
       serve = null;
       playerOneScore = 0;
       playerTwoScore = 0;
@@ -65,6 +75,7 @@ document.onkeypress = function (e) {
   const key3 = 51;
   if (e.keyCode === key3) {
     view.resetWinner();
+    gameOver = false;
     serve = null;
     playerOneScore = 0;
     playerTwoScore = 0;
@@ -137,6 +148,7 @@ const view = new ScoreboardView(
       // winner already announced
       if (view.checkIfWinnerStillBoasting() === true) {
         view.resetWinner();
+        gameOver = false;
         playerOneScore = 0;
         playerTwoScore = 0;
       }
@@ -145,7 +157,7 @@ const view = new ScoreboardView(
         view.resetServe();
         const winningPlayer = playerOneScore === 21 ? 1 : 2;
         audioQueue.push(getSound('game over', player));
-
+        gameOver = true;
         view.showWinner();
         view.wordflick(winningPlayer);
         view.disableCounters();
@@ -165,7 +177,7 @@ const view = new ScoreboardView(
       );
     }
     const tauntEnabled = document.getElementById('taunt').checked;
-    if (!special && tauntEnabled) {
+    if (!special && tauntEnabled && !gameOver) {
       taunt(servingPlayer, playerOneScore, playerTwoScore, player);
     }
     // play the sounds
@@ -173,6 +185,7 @@ const view = new ScoreboardView(
   },
   () => {
     view.resetWinner();
+    gameOver = false;
     serve = null;
     playerOneScore = 0;
     playerTwoScore = 0;
@@ -181,21 +194,20 @@ const view = new ScoreboardView(
     view.updateServer(serve, servingPlayer);
     view.update(playerOneScore, playerTwoScore);
     play_sound_queue([getSound('321')]);
-  },()=>{  
+  },
+  () => {
     const playmusic = document.getElementById('bgMusic').checked;
-    if(!playmusic){
-      audio.load()
+    if (!playmusic) {
+      audio.load();
       return;
     }
-  if (playmusic) {
-    audio.volume = 0.3;
-    audio.loop = false;
-    audio.src = playlist[0];
-    audio.play();
+    if (playmusic) {
+      audio.volume = 0.3;
+      audio.loop = false;
+      audio.src = playlist[0];
+      audio.play();
+    }
   }
-
-}
-
 );
 
 const getSound = (sound, player = 'one') => {
@@ -392,6 +404,9 @@ const getSound = (sound, player = 'one') => {
 
   if (voice === 'tike') {
     switch (sound) {
+      case 'juans':
+        return new Audio('sounds/tike/tike juans.wav');
+
       case 'twah':
         return new Audio('sounds/tike/tike twah.wav');
 
@@ -424,6 +439,123 @@ const getSound = (sound, player = 'one') => {
 
       case 'sudden death':
         return new Audio('sounds/tike/tike sudden death.wav');
+      case 'mistakes':
+        return new Audio('sounds/tike/tike mistakes.wav');
+      case 'what we signed up for':
+        return new Audio('sounds/tike/tike not what we signed up for.wav');
+      case 'superb':
+        return new Audio('sounds/tike/tike superb.wav');
+      case 'serious':
+        return new Audio('sounds/tike/tike serious.wav');
+      case 'coming home':
+        return new Audio('sounds/tike/tike coming home.wav');
+      case 'whoa':
+        return new Audio('sounds/tike/tike whoa.wav');
+      case 'solid':
+        return new Audio('sounds/tike/tike solid.wav');
+      case 'disappointing':
+        return new Audio('sounds/tike/tike disappointing.wav');
+      case 'how you do it':
+        return new Audio('sounds/tike/tike how you do it.wav');
+      case 'better luck':
+        return new Audio('sounds/tike/tike better luck.wav');
+
+      case 'encouragement':
+        return new Audio('sounds/tike/tike encouragement.wav');
+      case 'game point':
+        return new Audio('sounds/tike/tike game point.wav');
+      case 'hands':
+        return new Audio('sounds/tike/tike hands.wav');
+      case 'no contest':
+        return new Audio('sounds/tike/tike no contest.wav');
+      case 'no no no':
+        return new Audio('sounds/tike/tike no no no.wav');
+      case 'no pressure':
+        return new Audio('sounds/tike/tike no pressure.wav');
+      case 'goat':
+        return new Audio('sounds/tike/tike goat.wav');
+      case 'almost there':
+        return new Audio('sounds/tike/tike almost there.wav');
+      case 'end it':
+        return new Audio('sounds/tike/tike end it.wav');
+      case 'misery':
+        return new Audio('sounds/tike/tike misery.wav');
+      case 'rabbits':
+        return new Audio('sounds/tike/tike rabbits.wav');
+      case 'vs':
+        return new Audio('sounds/tike/tike vs.wav');
+
+      case '0':
+        return new Audio('sounds/tike/tike 0.wav');
+
+      case '1':
+        return new Audio('sounds/tike/tike 1.wav');
+
+      case '2':
+        return new Audio('sounds/tike/tike 2.wav');
+
+      case '3':
+        return new Audio('sounds/tike/tike 3.wav');
+
+      case '4':
+        return new Audio('sounds/tike/tike 4.wav');
+
+      case '5':
+        return new Audio('sounds/tike/tike 5.wav');
+
+      case '6':
+        return new Audio('sounds/tike/tike 6.wav');
+
+      case '7':
+        return new Audio('sounds/tike/tike 7.wav');
+
+      case '8':
+        return new Audio('sounds/tike/tike 8.wav');
+
+      case '9':
+        return new Audio('sounds/tike/tike 9.wav');
+
+      case '10':
+        return new Audio('sounds/tike/tike 10.wav');
+
+      case '11':
+        return new Audio('sounds/tike/tike 11.wav');
+
+      case '12':
+        return new Audio('sounds/tike/tike 12.wav');
+
+      case '13':
+        return new Audio('sounds/tike/tike 13.wav');
+
+      case '14':
+        return new Audio('sounds/tike/tike 14.wav');
+
+      case '15':
+        return new Audio('sounds/tike/tike 15.wav');
+
+      case '16':
+        return new Audio('sounds/tike/tike 16.wav');
+
+      case '17':
+        return new Audio('sounds/tike/tike 17.wav');
+
+      case '18':
+        return new Audio('sounds/tike/tike 18.wav');
+
+      case '19':
+        return new Audio('sounds/tike/tike 19.wav');
+
+      case '20':
+        return new Audio('sounds/tike/tike 20.wav');
+
+      case '21':
+        return new Audio('sounds/tike/tike 21.wav');
+
+      case '22':
+        return new Audio('sounds/tike/tike 22.wav');
+
+      case 'serving':
+        return new Audio('sounds/tike/tike serving.wav');
     }
   }
   if (voice === 'irish') {
@@ -622,7 +754,9 @@ const getSound = (sound, player = 'one') => {
       case 'mistakes':
         return new Audio('sounds/kenna oo nana/kenna oo nana mistakes.wav');
       case 'what we signed up for':
-        return new Audio('sounds/kenna oo nana/kenna oo nana not what we signed up for.wav');
+        return new Audio(
+          'sounds/kenna oo nana/kenna oo nana not what we signed up for.wav'
+        );
       case 'superb':
         return new Audio('sounds/kenna oo nana/kenna oo nana superb.wav');
       case 'serious':
@@ -634,14 +768,20 @@ const getSound = (sound, player = 'one') => {
       case 'solid':
         return new Audio('sounds/kenna oo nana/kenna oo nana solid.wav');
       case 'disappointing':
-        return new Audio('sounds/kenna oo nana/kenna oo nana disappointing.wav');
+        return new Audio(
+          'sounds/kenna oo nana/kenna oo nana disappointing.wav'
+        );
       case 'how you do it':
-        return new Audio('sounds/kenna oo nana/kenna oo nana how you do it.wav');
+        return new Audio(
+          'sounds/kenna oo nana/kenna oo nana how you do it.wav'
+        );
       case 'better luck':
         return new Audio('sounds/kenna oo nana/kenna oo nana better luck.wav');
 
       case 'encouragement':
-        return new Audio('sounds/kenna oo nana/kenna oo nana encouragement.wav');
+        return new Audio(
+          'sounds/kenna oo nana/kenna oo nana encouragement.wav'
+        );
       case 'game point':
         return new Audio('sounds/kenna oo nana/kenna oo nana game point.wav');
       case 'hands':
@@ -751,10 +891,7 @@ const AnnounceScore = (
       servingPlayer === 'one'
         ? getSound('player1', servingPlayer)
         : getSound('player2', servingPlayer);
-    // const otherPlayer = getSound(
-    //   servingPlayer === 'one' ? 'player2' : 'player1',
-    //   servingPlayer
-    // );
+
     return [player, getSound('serving', servingPlayer)];
   }
   // play whose sering score first
@@ -843,7 +980,7 @@ const taunt = (servingPlayer, playerOneScore, playerTwoScore, player) => {
         getSound('better luck', player),
         getSound('hands', player),
         getSound('no contest', player),
-        getSound('goat', player),
+        getSound('goat', player)
       ];
       const randomSOund = tauntArray[(tauntArray.length * Math.random()) | 0];
       audioQueue.push(randomSOund);
@@ -860,27 +997,27 @@ const taunt = (servingPlayer, playerOneScore, playerTwoScore, player) => {
       opponentScore - servingPlayerScore < 10
     ) {
       const reactionArray = [
-        getSound('mistakes', player),
-        getSound('disappointing', player),
+        getSound('mistakes', servingPlayer),
+        getSound('disappointing', servingPlayer),
         getSound('wah wah', 'global'),
-        getSound('what we signed up for', player),
-        getSound('serious', player),
-        getSound('coming home', player),
-        getSound('encouragement', player),
-        getSound('no no no', player),
-        getSound('no pressure', player),
+        getSound('what we signed up for', servingPlayer),
+        getSound('serious', servingPlayer),
+        getSound('coming home', servingPlayer),
+        getSound('encouragement', servingPlayer),
+        getSound('no no no', servingPlayer),
+        getSound('no pressure', servingPlayer)
       ];
       const randomSOund =
         reactionArray[(reactionArray.length * Math.random()) | 0];
       audioQueue.push(randomSOund);
     } else if (opponentScore - servingPlayerScore >= 10) {
       const reactionArray = [
-        getSound('end it', player),
-        getSound('misery', player),
+        getSound('end it', servingPlayer),
+        getSound('misery', servingPlayer),
         getSound('wah wah', 'global'),
-        getSound('rabbits', player),
-        getSound('serious', player),
-        getSound('almost there', player),
+        getSound('rabbits', servingPlayer),
+        getSound('serious', servingPlayer),
+        getSound('almost there', servingPlayer)
       ];
       const randomSOund =
         reactionArray[(reactionArray.length * Math.random()) | 0];
