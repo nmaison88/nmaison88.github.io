@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Traffic Light Animation</title>
+    <audio id="sound">
+        <source src="trafficlight.wav" type="audio/wav">
+    </audio>
+    <style>
+        #streetlight {
+            height: auto;
+            width: auto;
+        }
+
+        .street {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: content-box;
+            background-color: lightgreen;
+
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .traffic-signal {
+            width: 100px;
+            height: 300px;
+            background-color: #333;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .light {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 10px;
+            transition: background-color 0.9s;
+        }
+
+
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="streetlight">
+        <input class="street" type="Street Name">
+
+
+        <div class="traffic-signal">
+            <div class="light red animate"></div>
+            <div class="light yellow"></div>
+            <div class="light green"></div>
+        </div>
+    </div>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function Start() {
+            console.log('test');
+            const sound = document.getElementById("sound");
+            const redLight = document.getElementsByClassName("light red animate");
+            const yellowLight = document.getElementsByClassName("light yellow");
+            const greenLight = document.getElementsByClassName("light green");
+            redLight[0].style.opacity = '0.1';
+            yellowLight[0].style.opacity = '0.1';
+            greenLight[0].style.opacity = '0.1';
+            let light = 'red';
+            while (true) {
+                if (light === 'red') {
+                    sound.play();
+                    console.log('light is red');
+                    redLight[0].style.opacity = '1.0';
+                    yellowLight[0].style.opacity = '0.1';
+                    greenLight[0].style.opacity = '0.1';
+                    light = 'green';
+                    await sleep(5000);
+
+                } if (light === "green") {
+                    sound.play();
+                    console.log('light is green');
+                    redLight[0].style.opacity = '0.1';
+                    yellowLight[0].style.opacity = '0.1';
+                    greenLight[0].style.opacity = '1.0';
+                    light = 'yellow';
+                    await sleep(5000);
+
+                }
+                if (light === "yellow") {
+                    sound.play();
+                    console.log('light is yellow');
+                    redLight[0].style.opacity = '0.1';
+                    yellowLight[0].style.opacity = '1.0';
+                    greenLight[0].style.opacity = '0.1';
+                    light = 'red';
+                    await sleep(3000);
+
+                }
+
+
+            }
+
+        }
+        Start()
+    </script>
+</body>
+
+</html>
